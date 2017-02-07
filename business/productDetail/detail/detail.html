@@ -7,11 +7,101 @@
 		<div class="am-u-sm-12 det-details">
 			<div class="am-u-sm-10">{{productDetails.description}} {{productDetails.detail}}</div>
 
-			<div class="am-u-sm-12 det-value"> ¥{{productDetails.real_price}} 
-				<span class="det-lastValue"> ¥{{productDetails.price}}</span>
-				<span>{{productDetails.name}} </span>
+			<div class="am-u-sm-12 det-value"> 4.0个/斤
+				<span class="det-lastValue"></span>
+				<span> </span>
+			</div>
+			<div class="am-u-sm-12 det-value">
+				<ul class="sku">
+					<li>
+						<dl><dt style="font-size:12px;color:#333;padding-bottom:5px">订购方式:<a style="color:#f6325b;margin-left:15px;"></a></dt>
+						<dd class="sku-item" sku-name="鲜花品种" data-key="0">
+								<span data-key="0" class="select ed">
+						 按个数</span>
+						 <span data-key="0" class="select">
+						 按斤数</span>
+						 
+								</dd>
+						</dl>
+					</li>
+							<li>
+						<dl><dt style="font-size:12px;color:#333;padding-bottom:5px">订购数量:<a style="color:#f6325b;margin-left:15px;"></a></dt>
+						<dd class="sku-item" sku-name="收花日期" data-key="1">
+							    <div class="am-btn-group am-btn-group-xs proLi-goodsNum" style="float: left; */">
+                             
+                                <span  class="numselect" ng-click = "p.reduce();getAllPrice()">-</span>
+                                <span class="numselect">2</span>
+								<span>个</span>
+								<span>约1.5斤</span>
+                                <span class="numselect" ng-click = "p.increase();getAllPrice()">+</span>
+								</div>
+						</dd>
+						</dl>
+					</li>
+				</ul>
 			</div>
 		</div>
+			<div class="am-u-sm-12 det-value teaminput">
+				<ul class="sku" >
+					<li style="font-size:12px;color:#333;padding-bottom:5px">
+					总金额：<input type="text"  value="100"  >
+					</li>
+					<li style="font-size:12px;color:#333;padding-bottom:5px">
+					总人数：<input type="text"  value="10" >
+					</li>
+					<li>
+			
+				</ul>
+				
+			</div>	
+<form>
+			<div class="am-u-sm-12 det-value teaminput">
+				<ul class="sku" >
+					<li  style="font-size:12px;color:#333;padding-bottom:5px">
+							<div class="proLi-selectGoods" ng-click = "p.changStatus();getAllPrice()"style="
+    margin-left: -15px;
+">
+								<input type="radio"  />
+							</div>
+							<ul class="teamset">
+							<li >
+							<div class="am-u-sm-12 det-value "> 进口香蕉 
+								<span > 5个</span>
+								<span> 约3.1斤</span>
+							</div>
+							</li>
+							<li >
+							<div class="am-u-sm-12 det-value "> 橙汁1瓶
+								<span > 鲜榨</span>
+								<span> 赠送</span>
+							</div>	
+							</li>
+							</ul>							
+					</li>
+					<li style="font-size:12px;color:#333;padding-bottom:5px">
+							<div class="proLi-selectGoods" ng-click = "p.changStatus();getAllPrice()"style="
+    margin-left: -15px;
+">
+								<input type="radio" checked />
+							</div>					
+							<ul class="teamset">
+							<li >
+							<div class="am-u-sm-12 det-value "> 进口香蕉 
+								<span > 5个</span>
+								<span> 约3.1斤</span>
+							</div>
+							</li>
+							<li >
+							<div class="am-u-sm-12 det-value "> 橙汁1瓶
+								<span > 鲜榨</span>
+								<span> 赠送</span>
+							</div>	
+							</li>
+							</ul>					
+					</li>
+				</ul>
+			</div>	
+</form>
 		<!--提示-->
 		<div class="am-u-sm-12 det-sign">
 			<p>*原产地直邮，下单时请提供真实姓名和身份证号。</p>

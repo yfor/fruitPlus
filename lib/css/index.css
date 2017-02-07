@@ -109,13 +109,50 @@ li{ list-style: none; }
 }
 
 
+.price-sum {
+    color: #e4393c;
+}
+
+.select {
+
+	padding: 8px 6px;
+    border-radius: 1px;
+    border: 1px solid #ccd2d5;
+    margin: 0 3.5% 10px 0;
+    min-width: 29%;
+    color: #889399;
+    text-align: center;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .3s ease-out;
+}
+.numselect {
+
+	padding: 8px 6px;
+    border-radius: 1px;
+    border: 1px solid #ccd2d5;
+  
+    color: #889399;
+    text-align: center;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .3s ease-out;
+}
+.ed{
+    border-color: #ff6699;
+    background: #ff6699;
+    color: #fff;
+}
 
 
-
-
-
-
-
+.teaminput{
+	border-bottom: 1px solid silver;
+}
+.teamset{
+	margin: 10px;
+	border: 1px solid #333;
+	    height: 100px;
+}
 
 
 /*menu*/

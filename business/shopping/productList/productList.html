@@ -63,14 +63,15 @@
             <div>您还未登录，请先登录</div>
             <button class="am-btn" ng-click = "gotoLogon()">点击登录</button>
         </div>
-        <div ng-if = "users.owner_id" class="am-topbar am-topbar-fixed-bottom" style="margin-bottom:40px;">
+        <div ng-if = "users.owner_id"  class="am-topbar am-topbar-fixed-bottom" style="margin-bottom:0px;z-index: 100000000;">
             <div class = "am-g">
                 <div class="am-u-sm-6 am-vertical-align" style= "height:50px">
-                    <span class="am-vertical-align-middle">总计 ￥{{allPrice || 0}}</span>
+                    <span class="am-vertical-align-middle price-sum">总计 ￥{{allPrice || 0}}</span>
                 </div>
-                <div class="am-u-sm-6 ">
-                    <button class="am-btn am-btn-lg proLi-toBuyBtn am-fr" style = "z-index:1100" ng-click = "changedPage2payment()">去结算</button>
-                </div>
+       
+				<div class="am-u-sm-6 am-vertical-align am-fr" style= "height:50px;background-color:#DD2727;color:white;text-align:center">
+					<span class="am-vertical-align-middle" ng-click = "gotoShopList()">去结算</span>
+				</div>
             </div>
         </div>
     </div>
