@@ -48,7 +48,7 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 				$scope.slideFruitDataHor = $scope.productListDisplay.slice(20,26);
 			}
 		}
-		init();
+		//init();
 
 	}];
 	return ctrl;

@@ -3,8 +3,8 @@ require.config({
 
 	map:{
 		"*":{
-			"jquery":"lib/jquery.min",
-			"angular":"lib/angular.min",
+			"jquery":"http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js",
+			"angular":"http://cdn.bootcss.com/angular.js/1.5.0/angular.min.js",
 			"ui-router":"lib/angular-ui-router",
 			"amaze":"lib/amaze/js/amazeui.min.js",
 			"swiper":"lib/swiper/js/swiper.min.js",
@@ -19,24 +19,21 @@ require.config({
 	},
 
 	shim:{
-		'lib/jquery.min':{
+		'http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js':{
 			"exports":'$'
 		},
 
 		"amaze/amazeui.min":{
-			"deps":["lib/jquery.min"],
+			"deps":["jquery"],
 			"exports":"amaze"
 		},
-		'lib/angular.min':{
-			"deps":["lib/jquery.min"],
+		'http://cdn.bootcss.com/angular.js/1.5.0/angular.min.js':{
+			"deps":["jquery"],
 			"exports":'angular'
 		},
 		"lib/angular-ui-router":{
-			"deps":["lib/angular.min"]
-		},
-		// "lib/iscroll":{
-		// 	"exports":"IScroll"
-		// }
+			"deps":["http://cdn.bootcss.com/angular.js/1.5.0/angular.min.js"]
+		}
 
 	},
 	priority:["angular"],
