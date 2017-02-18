@@ -1,38 +1,31 @@
 require.config({
 	baseUrl:"./",
-
-	map:{
-		"*":{
-			"jquery":"http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js",
-			"angular":"http://cdn.bootcss.com/angular.js/1.5.0/angular.min.js",
-			"ui-router":"lib/angular-ui-router",
-			"amaze":"lib/amaze/js/amazeui.min.js",
-			"swiper":"lib/swiper/js/swiper.min.js",
-			"iscl":"lib/iscroll.js",
-			"wx":"http://res.wx.qq.com/open/js/jweixin-1.1.0.js",
-		},
-	},
-
 	paths :{
-		amaze:"lib/amaze/js",
-		swiper:"lib/swiper/js"
+		"jquery":"http://cdn.bootcss.com/jquery/2.2.1/jquery.min",
+		"angular":"http://cdn.bootcss.com/angular.js/1.5.0/angular.min",
+		"ui-router":"http://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min",
+		"amaze":"http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min",
+		"swiper":"http://cdn.bootcss.com/Swiper/3.4.0/js/swiper.min",
+		"iscl":"http://cdn.bootcss.com/Swiper/3.4.0/js/iscroll.min",
+		"wx":"http://res.wx.qq.com/open/js/jweixin-1.1.0"
 	},
 
 	shim:{
-		'http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js':{
+		'jquery':{
 			"exports":'$'
 		},
 
-		"amaze/amazeui.min":{
+		"amaze":{
 			"deps":["jquery"],
 			"exports":"amaze"
 		},
-		'http://cdn.bootcss.com/angular.js/1.5.0/angular.min.js':{
+		'angular':{
 			"deps":["jquery"],
 			"exports":'angular'
 		},
-		"lib/angular-ui-router":{
-			"deps":["http://cdn.bootcss.com/angular.js/1.5.0/angular.min.js"]
+		"ui-router":{
+			"deps":["angular"],
+			"exports": 'ngRouteModule'
 		}
 
 	},
