@@ -34,8 +34,8 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 					$scope.displayDataForMenu[$scope.currentMenu] = data.data;
 					$scope.productListDisplay = $scope.displayDataForMenu[$scope.currentMenu];
 					// lunbo  productListDisplay to use
-					$scope.slideFruitData =  $scope.productListDisplay.slice(0,5);
-					$scope.slideFruitDataHor = $scope.productListDisplay.slice(20,26);
+					$scope.slideFruitData =  $scope.productListDisplay;
+					//$scope.slideFruitDataHor = $scope.productListDisplay.slice(20,26);
 					// console.log($scope.productListDisplay.slice(5,8))
 					// menu data this place 
 				},function(err){
@@ -48,7 +48,7 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 				$scope.slideFruitDataHor = $scope.productListDisplay.slice(20,26);
 			}
 		}
-		//init();
+		init();
 
 	}];
 	return ctrl;

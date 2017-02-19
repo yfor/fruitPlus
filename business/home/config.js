@@ -1,4 +1,4 @@
-define(["angular","ui-router"],function(angular,uirouter){
+define(["angular","ui-router","iscl"],function(angular,uirouter){
 
 	var config = ["$stateProvider","$urlRouterProvider","$controllerProvider",function($stateProvider,$urlRouterProvider,$controllerProvider){
 		$urlRouterProvider.when("", "/home");

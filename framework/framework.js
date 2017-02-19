@@ -30,7 +30,7 @@ define(
 		$rootScope.menuPstion = {};
 		$rootScope.orderDetailsDisplay = {};
 		$rootScope.menuchangePosRem = {};
-		$rootScope.shopListNum = {num:0};
+		$rootScope.shopListNum = {num:2};
 		$rootScope.deatilFlag = false;
 		$rootScope.currentMenu = 2; 
 		$rootScope.orderStatusCurrent = {
@@ -138,7 +138,7 @@ define(
 		$rootScope.$on("$stateChangeSuccess",function(e,c,n){
 			setTimeout(function(){
 				$(".loading").hide();				
-			},1800);
+			},0);
 			if ($rootScope.menuPstion[c.name]) {
 				
 				$("body").animate({

@@ -76,10 +76,8 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 				}
 
 				scope.$watchCollection("options",function(newone,oldone){
-
-					// scope.options = [];
-					// console.log(newone,"new")
-					// console.log(typeof swiper)
+					
+				
 					scope.picArry = [];
 					if (typeof swiper == "object") {
 						// console.log("delete.....")
