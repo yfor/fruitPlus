@@ -137,10 +137,10 @@ define(
 
 		$rootScope.$on("$stateChangeSuccess",function(e,c,n){
 			setTimeout(function(){
+
 				$(".loading").hide();				
-			},0);
+			},100);
 			if ($rootScope.menuPstion[c.name]) {
-				
 				$("body").animate({
 					scrollTop:$rootScope.menuPstion[c.name]
 				},1000);
@@ -167,8 +167,7 @@ define(
 			
 			setTimeout(function(){
 				$("body").animate({
-					
-						scrollTop:$rootScope.menuchangePosRem[cur] ||0
+					scrollTop:$rootScope.menuchangePosRem[cur] ||0
 				},0);
 			},100);
 		}

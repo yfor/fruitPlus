@@ -84,6 +84,7 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 						swiper.destroy();
 					};
 					scope.picArry = newone;
+					
 					setTimeout(function(){
 						
 					if (typeof newone != "undefined" && newone.length) {
@@ -111,73 +112,7 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 	}]);
 	
 	
-	mod.directive("amSwiperPlugHor",["$state",function($state){
-		return {
-			restrict:"ECA",
-			templateUrl:"/framework/template/swiperHor.html",
-			scope:{
-				options:"="
-			},
-			link:function(scope,element,attr){
-				scope.picArry = [];
-				var swiper1 = undefined;
-				scope.swiperService = "http://116.62.6.81"
-				scope.stateGoto = function(id){
-					$state.go("detail",{productId:id});
-				}
 
-				scope.$watchCollection("options",function(newone,oldone){
-					// scope.options = [];
-					// console.log(newone,"new")
-					// console.log(typeof swiper)
-					scope.picArry = [];
-					if (typeof swiper == "object") {
-						
-						swiper1.destroy();
-					};
-					scope.picArry = newone;
-					setTimeout(function(){
-						// console.log(newone)
-					if (typeof newone != "undefined" && newone.length) {
-						swiper1 = new Swiper(".swiper-container1", {
-								// wrapperClass : 'my-wrapper',
-								freeMode:true,
-						        // width : 150,
-						        // height:150,
-						        lazyLoading: true,
-						        // freeModeSticky:true,
-						        // slidesOffsetAfter：20,
-						        slidesPerView: 2.5,
-						        // effect : 'coverflow',
-						        // coverflow: {
-						        //     rotate: 30,
-						        //     stretch: 10,
-						        //     depth: 60,
-						        //     modifier: 2,
-						        //     slideShadows : true
-						        // }
-
-							    // nextButton: '.swiper-button-next',
-						        // prevButton: '.swiper-button-prev',
-						        // pagination: '.swiper-pagination',
-						        // paginationClickable: true,
-						        // Disable preloading of all images
-						        // preloadImages: false,
-						        // Enable lazy loading
-								// loop : true,
-								// autoplay: 3000,
-								// autoplayDisableOnInteraction : false,
-								// horizontal
-				      		});
-						// console.log(swiper)
-					};
-					},40);
-					
-										
-				},true);
-			}
-		}
-	}]);
 
 
 	mod.directive("amCounts",function(){

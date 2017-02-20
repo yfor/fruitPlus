@@ -38,6 +38,9 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 					//$scope.slideFruitDataHor = $scope.productListDisplay.slice(20,26);
 					// console.log($scope.productListDisplay.slice(5,8))
 					// menu data this place 
+					setTimeout(function(){
+							$(".loading").hide();				
+					},100);	
 				},function(err){
 					console.log(err)
 				});

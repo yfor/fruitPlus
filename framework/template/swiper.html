@@ -1,8 +1,13 @@
 <div class="swiper-container" am-swiper>
-        <div class="swiper-wrapper">
-            <div  class="swiper-slide" ng-repeat = "p in picArry track by $index" ng-click = "stateGoto(p.id)">
+        <div  class="swiper-wrapper">
+            <div  ng-if="p.pictures[2]" class="swiper-slide" ng-repeat = "p in picArry track by $index" ng-click = "stateGoto(p.id)">
                 <div class = "wh">
                     <img  ng-src="{{swiperService+p.pictures[2][0].document.url}}" class="swiper-lazy">
+                </div>
+            </div>
+			<div ng-if="p.document" ng-if="p.pictures[2]" class="swiper-slide" ng-repeat = "p in picArry track by $index" >
+                <div class = "wh">
+                    <img  ng-src="{{swiperService+p.document.url}}" class="swiper-lazy">
                 </div>
             </div>
         </div>
@@ -27,7 +32,7 @@
     }
     .swiper-slide img{
         width:100%;
-        height:196px;
+        height:176px;
     }
 
     .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {

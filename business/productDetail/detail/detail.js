@@ -4,11 +4,8 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 
 		// $scope.slideFruitData = ["lib/images/img5.png","lib/images/lemon_12.png","lib/images/sangshen_15.png","lib/images/small.jpg","lib/images/spic3.png"];
 		$scope.slideFruitData = []
-		var productDetail = $stateParams.productId;
+		var productId = $stateParams.productId;
 		var pdtIns = new pdt($q);
-		$scope.typeName = {
-			type:"lunbo"
-		}
 
 		$scope.modalObj = {
 			content:"",
@@ -27,7 +24,7 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 		        "amount": "1",
 		        "remark": ""
 		    },
-		    "product_id": productDetail,
+		    "product_id": productId,
 		    "owner_id": getUsercountId(),
 		    "owner_type": "Customer"
 		}
@@ -87,23 +84,16 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 		// display in html
 		$scope.productDetails ={};
 		function init(){
-			$scope.scrollToZero();
-
-			var ip = $scope.serviceAddress;
-			pdtIns.getDataforHome(productDetail).then(function(data){
-				console.log(data,"detaildata...")
+			pdtIns.getDataforHome(productId).then(function(data){
+				$(".loading").hide();
 				$scope.productDetails = data.data;
-				$scope.slideFruitData = $scope.productDetails.pictures['轮播']; 
-				// $scope.slideFruitData = [ip+$scope.productDetails.pictures['轮播'][0].url,ip+$scope.productDetails.pictures['轮播'][1].url,ip+$scope.productDetails.pictures['轮播'][2].url]
+				$scope.slideFruitData = $scope.productDetails.pictures[1]; 
 			},function(err){
 				console.log("error....");
 			});
 
 		}
 		init();
-		// create list
-		
-		// end create
 
 	}];
 	return ctrl;
