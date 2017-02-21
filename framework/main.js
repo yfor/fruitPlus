@@ -4,7 +4,7 @@ require.config({
 		"jquery":"http://cdn.bootcss.com/jquery/2.2.1/jquery.min",
 		"angular":"http://cdn.bootcss.com/angular.js/1.5.0/angular.min",
 		"ui-router":"http://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.min",
-		"amaze":"http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min",
+		"amaze":"http://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min",
 		"swiper":"http://cdn.bootcss.com/Swiper/3.4.0/js/swiper.min",
 		"iscl":"http://cdn.bootcss.com/iScroll/5.2.0/iscroll.min",
 		"wx":"http://res.wx.qq.com/open/js/jweixin-1.1.0"

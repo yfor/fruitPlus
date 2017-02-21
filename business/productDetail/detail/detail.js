@@ -77,7 +77,6 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 		}
 
 		$scope.gotoShopList = function(){
-			$scope.addToBag();
 			$state.go("productList");
 			$scope.modalObj.hideDialog();
 		}
@@ -87,6 +86,7 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 			pdtIns.getDataforHome(productId).then(function(data){
 				$(".loading").hide();
 				$scope.productDetails = data.data;
+				
 				$scope.slideFruitData = $scope.productDetails.pictures[1]; 
 			},function(err){
 				console.log("error....");
