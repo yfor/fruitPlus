@@ -75,25 +75,69 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 			})
 
 		}
-
+		$scope.units=[
+		{
+			name:"斤",
+			id:0
+		},
+			{
+			name:"份",
+			id:1
+		},	{
+			name:"个",
+			id:2
+		},	{
+			name:"盒",
+			id:3
+		},	{
+			name:"箱",
+			id:4
+		}
+		]
 		$scope.gotoShopList = function(){
 			$state.go("productList");
 			$scope.modalObj.hideDialog();
 		}
+		$scope.selectPrice = function(price_select){
+			$scope.price_select=price_select;
+		}
+		
 		// display in html
 		$scope.productDetails ={};
 		function init(){
 			pdtIns.getDataforHome(productId).then(function(data){
 				$(".loading").hide();
-				$scope.productDetails = data.data;
-				
-				$scope.slideFruitData = $scope.productDetails.pictures[1]; 
+				var productDetails = data.data;
+				//顶部轮播图片
+				$scope.slideFruitData = productDetails.pictures[1]; 
+				if(productDetails.category_id===1){
+					var prices=productDetails.prices;
+					var index=0;
+					for(var i in prices){
+						if(prices[i].is_default){
+							index=i;
+						}
+					}
+					var defaultprice=prices[index];
+					var temp=prices[0];
+					prices[0]=defaultprice;
+					prices[index]=temp;
+					prices[0].is_default=true;
+					$scope.price_select=prices[0];
+				}else if(productDetails.category_id===2){
+				}else if(productDetails.category_id===3){
+				}else if(productDetails.category_id===4){
+					
+				}
+				$scope.productDetails=productDetails;
 			},function(err){
 				console.log("error....");
 			});
 
 		}
 		init();
+		
+		
 
 	}];
 	return ctrl;

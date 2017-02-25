@@ -6,24 +6,21 @@
 		<!--名称及价钱详细介绍-->
 		<div class="am-u-sm-12 det-details">
 			<div class="am-u-sm-10">{{productDetails.description}} {{productDetails.detail}}</div>
-
-			<div class="am-u-sm-12 det-value"> 4.0个/斤
+			<!--长度不变 在跳跃-->
+			<div class="am-u-sm-12 det-value"> {{price_select.real_price}}元/{{units[price_select.unit].name}}
 				<span class="det-lastValue"></span>
 				<span> </span>
 			</div>
 			
 		</div>
-		<div class="am-u-sm-12 det-value">
+		<div ng-show="productDetails.category_id===1" class="am-u-sm-12 det-value">
 			<ul class="sku">
 				<li>
 					<dl><dt style="font-size:12px;color:#333;padding-bottom:5px">订购方式:<a style="color:#f6325b;margin-left:15px;"></a></dt>
 					<dd class="sku-item" >
-							<span data-key="0" class="select ed">
-					 按个数</span>
-					 <span data-key="0" class="select">
-					 按斤数</span>
+						<span data-key="0" ng-repeat="price in productDetails.prices track by $index" class="select {{price_select.id==price.id?'ed':''}}" ng-click="selectPrice(price)">按{{units[price.unit].name}}数</span>
 					 
-							</dd>
+					</dd>
 					</dl>
 				</li>
 				<li>
@@ -42,7 +39,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="am-u-sm-12 det-value teaminput">
+		<div ng-show="productDetails.category_id===3" class="am-u-sm-12 det-value teaminput">
 			<ul class="sku" >
 				<li style="font-size:12px;color:#333;padding-bottom:5px">
 				总金额：<input type="text"  value="100"  >
@@ -56,7 +53,7 @@
 			
 		</div>	
 <form>
-			<div class="am-u-sm-12 det-value teaminput">
+			<div ng-show="productDetails.category_id===3" class="am-u-sm-12 det-value teaminput">
 				<ul class="sku" >
 					<li  style="font-size:12px;color:#333;padding-bottom:5px">
 							<div class="proLi-selectGoods" ng-click = "p.changStatus();getAllPrice()"style="

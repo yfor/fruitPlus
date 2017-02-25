@@ -204,7 +204,7 @@ li{ list-style: none; }
 .menu ul{  margin:2px 0px;  padding: 0;  }
 .menu li{ float: left;  width: 33%; padding-bottom: 4px;  list-style: none;  text-align: center;  border:0px; font-size: 12px  }
 .menu span{  display: block;  }
-.menuGoodsNum{background-color: #ff7045; position: absolute; z-index: 999; border-radius: 100%;width: 16px;height: 16px;font-size: 8px;text-align: center;line-height: 16px;    left: 53%; bottom: 50%}
+.menuGoodsNum{background-color: #ff7045; position: absolute; z-index: 999; border-radius: 100%;width: 16px;height: 16px;font-size: 8px;text-align: center;line-height: 16px;    left: 52%; bottom: 50%}
 .gotop{ bottom: 120px;font-size: 30px;right:15px;color: #B80101 }
 .gotop i{font-size: 30px;color: #cccccc}
 

@@ -61,7 +61,7 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 	mod.directive("amSwiperPlug",["$state",function($state){
 		return {
 			restrict:"ECA",
-			templateUrl:"/framework/template/swiper.html",
+			templateUrl:"framework/template/swiper.html",
 			scope:{
 				options:"=",
 				type:"="
