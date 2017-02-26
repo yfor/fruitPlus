@@ -3,20 +3,14 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 		var homePageIns = new homePage($q);
 		$scope.slideFruitData =  [];
 		$scope.productListDisplay = undefined;
-		// $scope.slideFruitDataHor = ["lib/images/boluo_03.png","lib/images/img5.png","lib/images/lemon_12.png","lib/images/sangshen_06.png","lib/images/shejiaguo_08.png",]
-		$scope.switchMenuContent = function(){
-			init();
-		}
+
 		$scope.gotoProductDetail = function(statusNum){
 			$scope.stateGoto(statusNum);
-			// $state.go("detail",{productId:statusNum})
 		}
-		$scope.gotoChristmas = function(){
-			$state.go("merrychristmas");
-		}
+	
 
-		$scope.goCollect = function(){
-			$state.go("collect");
+		$scope.scrollTo = function(number){
+			$("body").animate({scrollTop: $("#products_"+number).position().top}, 2000);
 		}
 		
 
@@ -27,20 +21,32 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 		function init(){
 			// console.log($scope.currentMenu,"currentMenunum.....")
 			if(!$scope.displayDataForMenu[$scope.currentMenu]){
-				homePageIns.categoryData($scope.currentMenu).then(function(data){
+				homePageIns.categoryData($scope.users.owner_id).then(function(data){
 					
 					// console.log(data,$scope.currentMenu,"categoryData......");
 					
-					$scope.displayDataForMenu[$scope.currentMenu] = data.data;
-					$scope.productListDisplay = $scope.displayDataForMenu[$scope.currentMenu];
+					var mainData=data;
 					// lunbo  productListDisplay to use
-					$scope.slideFruitData =  $scope.productListDisplay.slice(0,4);
+					$scope.slideFruitData =  mainData.adverts;
+					$scope.shopListNum.num=mainData.customer_carts.length;
+					var products=data.products;
+					
+				
+					$scope.products_1=filter(1);
+					$scope.products_2=filter(2);
+					$scope.products_3=filter(3);
+					$scope.products_4=filter(4);
 					//$scope.slideFruitDataHor = $scope.productListDisplay.slice(20,26);
 					// console.log($scope.productListDisplay.slice(5,8))
 					// menu data this place 
+					function filter(category_id){
+						return	products.filter(function (i){
+						return i.category_id===category_id;
+					})
+					}
 					setTimeout(function(){
 							$(".loading").hide();				
-					},100);	
+					});	
 				},function(err){
 					console.log(err)
 				});

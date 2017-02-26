@@ -30,13 +30,31 @@ define(
 		$rootScope.menuPstion = {};
 		$rootScope.orderDetailsDisplay = {};
 		$rootScope.menuchangePosRem = {};
-		$rootScope.shopListNum = {num:2};
+		$rootScope.shopListNum = {};
 		$rootScope.deatilFlag = false;
 		$rootScope.currentMenu = 2; 
 		$rootScope.orderStatusCurrent = {
 			num:-1
 		};
-
+		$rootScope.units=[
+		{
+			name:"斤",
+			id:0
+		},
+			{
+			name:"份",
+			id:1
+		},	{
+			name:"个",
+			id:2
+		},	{
+			name:"盒",
+			id:3
+		},	{
+			name:"箱",
+			id:4
+		}
+		]
 		var accountIns = new accountService($q);
 		var url = window.location.href;
 		// http://www.yiyunma.com/#/home？id=xxx&token=xxx

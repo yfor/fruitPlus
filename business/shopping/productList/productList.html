@@ -30,22 +30,24 @@
             </div>
             <ul>
                 <li style = "background-color:#fbfbfb" class="am-u-sm-12" ng-repeat = "p in pdtList track by $index" am-counts production = "p">
-                    <div ng-if="!p.productEdit" style = "text-align: right;margin-right: 5%;" ng-click = "p.edit(0)">编辑</div>
-                    <div ng-if="p.productEdit" style = "text-align: right;margin-right: 5%;" ng-click = "p.edit(1)">完成</div>
+                    <div  style = "text-align: right;margin-right: 5%;" >
+					 <span  class = "am-icon-trash-o" ng-click = "deleteProductNumber(p.id)"></span>
+					</div>
+                    
                     <div class="proLi-selectGoods" ng-click = "p.changStatus();getAllPrice()">
                         <input type="checkbox" ng-checked = "p.status == 'done'" />
                     </div>
-                    <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures['方正'][0].url}}" class="am-img-responsive" alt="图片"/></div>
+                    <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures[2][0].document.url}}" class="am-img-responsive" alt="图片"/></div>
                     <div class="proLi-goodsDetails">
                         <div class="proLi-details">{{p.product.detail}}{{p.product.name}}</div>
                         <div class="proLi-value">
-                            <div class="proLi-goodsValue">￥{{p.product.real_price}}</div>
+                            <div class="proLi-goodsValue">￥{{p.amount*p.price.real_price}}</div>
                             <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
                                 <span>数量</span>
                                 <span ng-if = "p.productEdit" ng-click = "p.reduce();getAllPrice()">-</span>
-                                <span>{{p.amount}}</span>
+                                <span>{{p.amount}}{{units[p.price.unit].name}}</span>
                                 <span ng-if = "p.productEdit" ng-click = "p.increase();getAllPrice()">+</span>
-                                <span ng-if = "p.productEdit" class = "am-icon-trash-o" ng-click = "deleteProductNumber(p.id)"></span>
+                               
                             </div>
                         </div>
                     </div>
@@ -55,7 +57,7 @@
                     <div class="am-text-center"><span class="am-icon-cart-plus am-icon-lg"></span></div>
                     <div class="am-text-center">您的购物车空空如也</div>
                     <div class="am-text-center proLi-text14">快去挑点宝贝吧</div>
-                    <div class="am-text-center"><button class="am-btn">去逛逛</button></div>
+                    <div ui-sref = "home" class="am-text-center"><button class="am-btn">去逛逛</button></div>
                 </li>
             </ul>
         </div>
@@ -63,17 +65,18 @@
             <div>您还未登录，请先登录</div>
             <button class="am-btn" ng-click = "gotoLogon()">点击登录</button>
         </div>
-        <div ng-if = "users.owner_id"  class="am-topbar am-topbar-fixed-bottom" style="bottom: 40px;margin-bottom:0px;z-index: 100000000;">
-            <div class = "am-g">
-                <div class="am-u-sm-6 am-vertical-align" style= "height:50px;margin-bottom: 0px;">
-                    <span class="am-vertical-align-middle price-sum">总计 ￥{{allPrice || 0}}</span>
-                </div>
-       
-				<div class="am-u-sm-6 am-vertical-align am-fr" style= "height:50px;margin-bottom: 0px;background-color:#DD2727;color:white;text-align:center">
-					<span class="am-vertical-align-middle" ng-click = "gotoShopList()">去结算</span>
-				</div>
-            </div>
-        </div>
+
     </div>
+
 </div>
-</div>
+	<div ng-if = "users.owner_id"  class="am-topbar am-topbar-fixed-bottom" style="bottom: 0px;margin-bottom:0px;z-index: 100000000;">
+		<div class = "am-g">
+			<div class="am-u-sm-6 am-vertical-align" style= "height:50px;margin-bottom: 0px;">
+				<span class="am-vertical-align-middle price-sum">总计 ￥{{allPrice || 0}}</span>
+			</div>
+   
+			<div class="am-u-sm-6 am-vertical-align am-fr" style= "height:50px;margin-bottom: 0px;background-color:#DD2727;color:white;text-align:center">
+				<span class="am-vertical-align-middle" ng-click = "gotoShopList()">去结算</span>
+			</div>
+		</div>
+	</div>	

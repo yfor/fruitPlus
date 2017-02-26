@@ -84,7 +84,6 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 						swiper.destroy();
 					};
 					scope.picArry = newone;
-					
 					setTimeout(function(){
 						
 					if (typeof newone != "undefined" && newone.length) {
@@ -123,30 +122,28 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 			},
 			link:function(scope,element,attr){
 				var parent = scope.$parent;
-				scope.production.status = "pending"
-				scope.production.productEdit = false;
+				scope.production.status = "done"
+				scope.production.productEdit = true;
 				var initNum = scope.production.amount;
-				scope.production.edit = function(num){
-					scope.production.productEdit = !scope.production.productEdit;
-					
-					if (num) {
-						// check num equal
-						if (initNum != scope.production.amount) {
-							parent.changebagListNum(scope.production.amount,scope.production.id,initNum).then(function(data){
+				scope.production.edit = function(){
+					if (initNum != scope.production.amount) {
+						parent.changebagListNum(scope.production.amount,scope.production.price.real_price,scope.production.id,initNum).then(function(data){
 
-								console.log(data)
-							},function(err){
-								scope.production.amount = initNum;
-								alert("编辑失败，请重新操作！");
-								console.log(err)
-							})
-							
-						};
+							console.log(data)
+						},function(err){
+							scope.production.amount = initNum;
+							alert("编辑失败，请重新操作！");
+							parent.getAllPrice();
+							console.log(err);
+						})
+						
 					};
+				
 				}
 
 				scope.production.increase = function(){
 					scope.production.amount++;
+					scope.production.edit();
 				}
 				scope.production.reduce = function(){
 					
@@ -154,6 +151,7 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 
 					}else{
 						scope.production.amount--;
+						scope.production.edit();
 					};
 				}
 				scope.production.changStatus = function(){

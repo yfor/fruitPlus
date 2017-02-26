@@ -106,7 +106,7 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		}
 
 		function initAddress(){
-			shopInc.getAccountAddress(1).then(function(data){
+			shopInc.getAccountAddress($scope.users.owner_id).then(function(data){
 			// shopInc.getAccountAddress($scope.users.customer.id).then(function(data){
 				console.log(data);
 				filterDefault(data.data)

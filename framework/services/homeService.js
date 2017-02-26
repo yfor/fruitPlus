@@ -5,9 +5,16 @@ define(["angular","framework/http"],function(angular,https){
 	homePage.prototype = new https();
 
 
-	homePage.prototype.categoryData = function(categoryID){
+	homePage.prototype.categoryData = function(customerId){
+		var query={};
+		query.type="home";
+		query.customer=customerId;
+		var str="?";
+		for(var i in query){
+			str+=i+"="+query[i]+"&"
+		}
 		return this.doRequest({
-			url:"/api/v1/accounts/1/stores/1/products",
+			url:"/api/v1/accounts/1/stores/1/products"+str,
 			method:"get"
 		});
 	}

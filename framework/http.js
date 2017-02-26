@@ -8,6 +8,7 @@ define(["framework/ajaxServer"],function(ajax){
 		var $q = this.$q;
 		var def = $q.defer();
 		this.ajax[options.method](options).then(function(data){
+			$(".loading").hide();	
 			def.resolve(data);
 		},function(err){
 			def.reject(err);

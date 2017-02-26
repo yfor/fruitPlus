@@ -3,17 +3,22 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 
 		var shopInc = new shopList($q);
 		// console.log($scope.users.owner_id,"owner_id...");
-		$scope.getAllPrice = function(){
+		$scope.getAllPrice = function(isFirst){
 			var allPrice = 0 ;
 			for (var i = 0; i < $scope.pdtList.length; i++) {
-				if ($scope.pdtList[i].status == "done") {
-					allPrice += ($scope.pdtList[i].product.real_price * $scope.pdtList[i].amount)
-				};
+				if(isFirst){
+					allPrice += ($scope.pdtList[i].price.real_price * $scope.pdtList[i].amount)
+				}else{
+					if ($scope.pdtList[i].status == "done") {
+					allPrice += ($scope.pdtList[i].price.real_price * $scope.pdtList[i].amount)
+					};
+				}
+
 			};
 			$scope.allPrice = allPrice;
 		}
 		
-
+	
 		// paymentpage
 		$scope.pageStatus = "orderPage"
 		
@@ -33,11 +38,12 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 				alert("请选择您要购买的产品");
 			};
 		}
-		$scope.changebagListNum = function(num,productid,initNum){
+		$scope.changebagListNum = function(num,real_price,productid,initNum){
 
 			var data = {
 			    "cart": {
-			        "amount": num
+			        "amount": num,
+					"total_price":real_price
 			    }
 			}
 			return	shopInc.changedProductNumber(data,{headers:$scope.users.setheaders},productid)
@@ -56,14 +62,18 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 		$scope.gotoLogon = function(){
 			$state.go("logon");
 		}
-	
+		$scope.gotoShopList = function(){
+			$state.go("payment.pay");
+			$scope.modalObj.hideDialog();
+		}
 		function init(){
 			shopInc.getAllOrderList($scope.users.customer.id).then(function(data){
 
 				// alert(JSON.stringify(data.data));
 				console.log(data,"getAllOrderList....")
-				$scope.pdtList = data.data;
+				$scope.pdtList = data.data.carts;
 				$scope.shopListNum.num = $scope.pdtList.length;
+				$scope.getAllPrice(true);
 				// alert($scope.shopListNum.num)
 				// $scope.$apply();
 			},function(err){
