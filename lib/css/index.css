@@ -314,7 +314,7 @@ li{ list-style: none; }
 .paym-way,.paym-value{  line-height: 45px;  padding-left: 10px;  }
 .paym-toBuyBtn{  margin-top: 5px;  border-radius: 3px;  background-color: #94D572;  }
 .paym-payItem .am-icon-angle-right{  margin-right: 10px;  }
-.paym-btn{ margin-bottom:50px; background-color:#999999;color:white; width: 100%; font-size: 16px;  padding: 8px;border-radius: 5px;}
+.paym-btn{ margin-bottom:50px; background-color:#DD2727;;color:white; width: 100%; font-size: 16px;  padding: 8px;border-radius: 5px;}
 
 /*pwdLogon*/
 .pwd-userImg{  margin-top: 30px;  height: 100px;  width: 100%;  }

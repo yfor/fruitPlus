@@ -28,7 +28,7 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 					var mainData=data;
 					// lunbo  productListDisplay to use
 					$scope.slideFruitData =  mainData.adverts;
-					$scope.shopListNum.num=mainData.customer_carts.length;
+					$scope.shopListNum.num=mainData.customer_carts.total_count;
 					var products=data.products;
 					
 				

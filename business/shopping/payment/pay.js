@@ -18,38 +18,27 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 				$scope.addOrChangeAddr();
 				// return;
 			};
-			for (var i = 0; i < $scope.displayOrderList.length; i++) {
-				var obj = {};
-				
-				obj.product_id= $scope.displayOrderList[i].product_id;
-				obj.quantity =  $scope.displayOrderList[i].owner_id;
-				obj.price = $scope.displayOrderList[i].product.real_price;
-
-				$scope.payProductDetails.push(obj);
+			var shopping_cart_ids=[];
+			for (var i = 0; i < $scope.displayOrderList.length; i++) {	
+				shopping_cart_ids.push($scope.displayOrderList[i].id);
 			};
 			
 			var details = {
-		    "order": {
-		        "status": 1,
-		        "total_price": $scope.allPrice,
-		        "pay_away": 1,
-		        "consignee_name": "",
-		        "consignee_phone": "",
-		        "consignee_address": $scope.createOrderAddress.address && $scope.createOrderAddress.address.id || "",
-		        "estimate": "",
-		        "remark": ""
-		    },
+			"total_price":$scope.allPrice,
 		    "buyer_id": $scope.users.customer.id,
 		    "buyer_type": "Customer",
-		    "details": $scope.payProductDetails,
-		    "address_id": $scope.createOrderAddress.address && $scope.createOrderAddress.address.id ?$scope.createOrderAddress.address.id : ""
-		}
-		// console.log($scope.displayOrderList,99999)
+		    "shopping_cart_ids": shopping_cart_ids,
+		    "address_id": 463
+		  }
+		
 
-			shopInc.createOrderAndPay(header,details).then(function(data){
+			shopInc.createOrderAndPay(header,{order:details}).then(function(data){
 				// alert("777");
 				// console.log(data.data);
-
+				if(data.code!==0){
+					alert(data.message);
+					return;
+				}
 				var signature = data.data.prepay_data;
 				
 				WeixinJSBridge.invoke(

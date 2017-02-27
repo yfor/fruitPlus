@@ -23,27 +23,22 @@
     <div class="am-u-sm-12 paym-goodsList">
         <ul>
             <li style = "background-color:#fbfbfb" class="am-u-sm-12" ng-repeat = " p in displayOrderList track by $index">
-                <div class="paym-goodsImg"><img ng-src="{{serviceAddress + p.product.pictures['方正'][0].url}}" alt=""/></div>
+				
+                <div class="paym-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures[2][0].document.url}}" alt=""/></div>
                 <div class="paym-goodsDetails">
                     <p>{{p.product.detail}}{{p.product.name}}</p>
-                    <p class="paym-goodsValue">￥{{p.product.real_price}} <span>x{{p.amount}}</span></p>
+                    <p class="paym-goodsValue">￥{{p.price.real_price}} <span>x{{p.amount}}</span></p>
                 </div>
             </li>
         </ul>
     </div>
 
-    <div class="am-u-sm-12 paym-order">
-        <!-- <div style="border-bottom: 1px solid silver">发货方式 <span>快递：0元（包邮）</span></div> -->
-        <div>订单总计 <span>￥{{allPrice}}</span></div>
-    </div>
 
-    <div class="am-u-sm-12 paym-favourable">
-        <div class="paym-itemStyle">优惠减免</div>
-        <div class="paym-item paym-payItem">优惠券  <span class="am-icon-angle-right"></span><span>使用优惠券</span></div>
-    </div>
+
+  
 
     <div class="am-u-sm-12 paym-pay">
-        <div class="paym-itemStyle">选择支付方式 <span class="am-fr">合计金额：¥{{allPrice}}</span></div>
+        <div class="paym-itemStyle">&nbsp; &nbsp;  <span class="am-fr">合计金额：¥{{allPrice}}</span></div>
         <div class="paym-paymentMode">
             <ul>
                 <li class="item"><span class="am-icon-weixin am-icon-md" style="color: #04E800"></span> 微信支付 </li>

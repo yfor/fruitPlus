@@ -1,6 +1,6 @@
 define(["amaze","framework/services/productService"],function (amaze,pdt){
 
-	var ctrl = ["$scope","$state","$stateParams","$http","$q",function($scope,$state, $stateParams,$http,$q){
+	var ctrl = ["$scope","$state","$stateParams","$http","$q","orderList",function($scope,$state, $stateParams,$http,$q,orderList){
 
 		// $scope.slideFruitData = ["lib/images/img5.png","lib/images/lemon_12.png","lib/images/sangshen_15.png","lib/images/small.jpg","lib/images/spic3.png"];
 		$scope.slideFruitData = []
@@ -62,7 +62,7 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 					$scope.modalObjSuc.hideDialog();
 				},2000)
 
-				$scope.shopListNum.num = data.data.cart_item_amount;
+				$scope.shopListNum.num++;
 				
 				console.log(data);
 
@@ -78,7 +78,45 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 		}
 
 		$scope.gotoShopList = function(){
-			$state.go("payment.pay");
+			var cart={
+					"product_id": $scope.productDetails.id,
+					"price_id": $scope.price_select.id,
+					"amount": $scope.productDetails.number,
+					"total_price": $scope.productDetails.number*$scope.price_select.real_price,
+					"owner_id": $scope.users.owner_id,
+					"owner_type": "Customer",
+					"remark": "xxx",
+					"property": 0
+			}
+			if (!$scope.users.owner_id) {
+				alert("请先登录");
+				return;
+			}
+			// add function 
+			//$scope.modalObj.showDialog();
+
+			pdtIns.addTobagList($scope.addTobagData,{cart:cart}).then(function(data){
+				
+				$scope.modalObj.hideDialog();
+				$scope.modalObjSuc.showDialogdwhite();
+			
+			
+
+
+				$scope.shopListNum.num++;
+				
+				orderList.allPrice = cart.total_price;
+				orderList.setList([data.data]);
+				$state.go("payment.pay");
+			},function(err){
+				$scope.modalObj.hideDialog();
+				$scope.modalObjErr.showDialogdwhite()
+				setTimeout(function(){
+					$scope.modalObjErr.hideDialog();
+				})
+
+			})
+			
 		}
 		$scope.selectPrice = function(price_select){
 			$scope.price_select=price_select;
