@@ -35,6 +35,21 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 			data:$scope.dataList,
 			headers:$scope.users.setheaders
 		}
+		$scope.computes  = function(){
+			
+				
+			pdtIns.computes($scope.users.setheaders,{number:$scope.productDetails.number-0,money:$scope.productDetails.money-0}).then(function(data){
+				
+
+				$scope.productDetails.plans=data.data;
+				
+				console.log(data);
+
+			},function(err){
+		
+
+			})
+		}
 		$scope.addToBag  = function(){
 			var cart={
 					"product_id": $scope.productDetails.id,
@@ -146,6 +161,9 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 					$scope.price_select=prices[0];
 					productDetails.number=1;
 				}else if(productDetails.category_id===3){
+					
+					productDetails.number=10;
+					productDetails.money=100;
 				}else if(productDetails.category_id===4){
 					
 				}

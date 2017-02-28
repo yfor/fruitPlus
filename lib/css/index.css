@@ -187,9 +187,26 @@ li{ list-style: none; }
 .teamset{
 	margin: 10px;
 	border: 1px solid #333;
-	    height: 100px;
+	
 }
 
+.advert_Product{
+	height: 120px;
+	
+}
+
+.advert_Product img{
+	height: 100px;
+	
+}
+.advert_Product dt{
+	font-size: 10px;
+	
+}
+.advert_Product i{
+	font-size: 10px;
+	color: red;
+}
 
 /*menu*/
 .menu{  
@@ -329,7 +346,7 @@ li{ list-style: none; }
 
 /*accounts*/
 /*.acc-my{background-color: #94D572; color: #ffffff; margin: 0px;position: fixed;z-index: 999; width: 100% }*/
-.acc-head{  background:#666666; padding-top: 50px }
+.acc-head{   padding-top: 50px }
 .acc-userImg{  margin-top: 30px;  height: 100px;  width: 100%;  }
 .acc-userImg img{  margin:0 auto;  height: 100px;  width: 100px;  }
 .acc-userName{  margin-bottom: 10px;  }
@@ -521,3 +538,34 @@ enter*/
 .padAndBor button span{  color: #94D572;  }
 .shopDet-goods .color2{  color: #222222;  }
 .shopDet-button button{  width: 48%;  }
+
+
+.swiper-slide{
+	width:100%;
+	/*height:196px;*/
+}
+.swiper-slide-active{
+	width:100%;
+}
+.wh{
+	width:100%;
+	height:100%;
+}
+.swiper-slide img{
+	width:100%;
+	height:176px;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+	margin: 0 3px;
+}
+
+.swiper-pagination-bullet {
+	width: 20px;
+	height: 6px;
+	border-radius: 0px;
+}
+
+.swiper-pagination-white .swiper-pagination-bullet{
+	background-color: #666666;
+}

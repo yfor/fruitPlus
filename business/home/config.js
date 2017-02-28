@@ -22,17 +22,17 @@ define(["angular","ui-router","iscl"],function(angular,uirouter){
 			}
 		});
 
-		$stateProvider.state("merrychristmas",{
-			url:"/merrychristmas",
-			templateUrl:"./business/home/merrychristmas/merrychristmas.html",
-			controller:"merrychristmas.ctrl",
+		$stateProvider.state("advert",{
+			url:"/advert?:index",
+			templateUrl:"./business/home/advert/advert.html",
+			controller:"advert.ctrl",
 			resolve:{
 				deps:function($q,$rootScope){
 					var defered = $q.defer();
-					var dependiences = ["./business/home/merrychristmas/merrychristmas"];
+					var dependiences = ["./business/home/advert/advert"];
 					require(dependiences,function(ctrl){
 						$rootScope.$apply(function(){
-							$controllerProvider.register("merrychristmas.ctrl",ctrl);
+							$controllerProvider.register("advert.ctrl",ctrl);
 							defered.resolve();
 						});
 					});

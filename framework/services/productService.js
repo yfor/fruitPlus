@@ -10,7 +10,22 @@ define(["angular","framework/http"],function(angular,https){
 			method:"get"
 		});
 	}
-
+	pdtRequest.prototype.computes = function(headers,data){
+		
+		var postData={
+			"compute": {
+				"category": 2,
+				"params": data
+			}
+		}
+		
+		return this.doRequest({
+			url:"/api/v1/computes",
+			method:"post",
+			data:JSON.stringify(postData),
+			headers:headers
+		});
+	}
 	pdtRequest.prototype.addTobagList = function(params,datalist){
 		console.log(datalist)
 		datalist = JSON.stringify(datalist)

@@ -71,8 +71,8 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 				var swiper = undefined;
 			
 				scope.swiperService = "http://116.62.6.81"
-				scope.stateGoto = function(id){
-					$state.go("detail",{productId:id});
+				scope.stateGoto = function(index){
+					$state.go("advert",{index:index});
 				}
 
 				scope.$watchCollection("options",function(newone,oldone){

@@ -56,8 +56,8 @@ define(["amaze","framework/services/accountService"],function(amaze,accountServi
 			};
 
 			accountIns.getOrderStatus($scope.users.owner_id).then(function(data){
-				$(".loading").hide();
-				$scope.orderList = data.data;
+				
+				$scope.orderList = data.data.orders;
 				console.log(data.data)
 				filterStatus($scope.orderList);
 				// alert(JSON.stringify(data))

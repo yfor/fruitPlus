@@ -1,0 +1,15 @@
+<div  am-show>
+	<div class = "swiper-slide ">
+		<img  class = "swiper-slide am-img-thumbnail" ng-src="{{serviceAddress+advert.advert.pictures[0].document.url}}" class="swiper-lazy">
+	</div>
+    <div class = "am-g" >
+			<div class="am-u-sm-4 advert_Product" ng-repeat = "p in products track by $index" >
+				<img  class="am-img-responsive"   ng-src="{{serviceAddress+p.pictures[2][0].document.url}}" class="swiper-lazy">
+				 <dt>{{p.name}}<i>¥{{p.prices[0].real_price}}</i></dt>
+			
+			</div>
+			
+	</div>
+</div>
+<!--内容区域结束-->
+<!-- <div ui-view></div> -->
