@@ -16,7 +16,9 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 		$scope.modalObjErr = {
 			content:"添加失败，请重新操作！",
 		}
-
+		$scope.modalObjErrComp = {
+			content:"推荐失败，请重新输入人数和金额！",
+		}
 
 
 
@@ -37,21 +39,79 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 		}
 		$scope.computes  = function(){
 			
-				
+			$scope.modalObj.showDialog();	
 			pdtIns.computes($scope.users.setheaders,{number:$scope.productDetails.number-0,money:$scope.productDetails.money-0}).then(function(data){
 				
-
+				$scope.modalObj.hideDialog();
 				$scope.productDetails.plans=data.data;
+				if($scope.productDetails.plans.length>0){
+					$scope.productDetails.plans[0].checked=true;
+					$scope.productDetails.planIndex=0;
+				}else{
+				$scope.modalObjErrComp.showDialogdwhite()
+				setTimeout(function(){
+					$scope.modalObjErrComp.hideDialog();
+				},2000)
+				}
 				
-				console.log(data);
 
 			},function(err){
-		
-
+				$scope.modalObj.hideDialog();
+				$scope.modalObjErrComp.showDialogdwhite()
+				setTimeout(function(){
+					$scope.modalObjErrComp.hideDialog();
+				},2000)
 			})
 		}
-		$scope.addToBag  = function(){
-			var cart={
+		$scope.changStatus=function(p,$index){
+			var isChecked=!p.checked;
+			if(isChecked){
+				$scope.productDetails.planIndex=$index;
+				for(var i=0;i<$scope.productDetails.plans.length;i++){
+					if($index!==i){
+						$scope.productDetails.plans[i].checked=false;	
+					}
+				}
+				p.checked=isChecked;	
+			}
+			
+		}
+		$scope.buildCarts= function(){
+			if($scope.productDetails.category_id===3){
+				if($scope.productDetails.plans.length<=0){
+					$scope.modalObjErrComp.showDialogdwhite()
+					setTimeout(function(){
+						$scope.modalObjErrComp.hideDialog();
+					},2000)
+				}
+				var computesPlan=$scope.productDetails.plans[$scope.productDetails.planIndex];
+
+				var plans=computesPlan.plans;
+		
+				for(var i=0;i<plans.length;i++){
+					var plan=plans[i];
+					var subitem={
+						"product_id": plan.product_id,
+						"price_id": plan.price_id,
+						"amount": plan.amount,
+						"total_price": plan.total_price,
+						"owner_id": $scope.users.owner_id,
+						"owner_type": "Customer",
+						"remark": "xxx",
+						"property": 0
+					};
+					if(i==0){
+						var cart=subitem;
+						cart.subitems=[];
+					}else{
+						cart.subitems.push(subitem);
+					}	
+				}
+				
+				
+				
+			}else{
+				var cart={
 					"product_id": $scope.productDetails.id,
 					"price_id": $scope.price_select.id,
 					"amount": $scope.productDetails.number,
@@ -60,7 +120,14 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 					"owner_type": "Customer",
 					"remark": "xxx",
 					"property": 0
+				}
 			}
+
+			
+			return cart;
+		}
+		$scope.addToBag  = function(){
+
 			if (!$scope.users.owner_id) {
 				alert("请先登录");
 				return;
@@ -68,7 +135,7 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 			// add function 
 			$scope.modalObj.showDialog();
 
-			pdtIns.addTobagList($scope.addTobagData,{cart:cart}).then(function(data){
+			pdtIns.addTobagList($scope.addTobagData,{cart:$scope.buildCarts()}).then(function(data){
 			// code = -1  auth failed
 				// alert(JSON.stringify(data));
 				$scope.modalObj.hideDialog();
@@ -93,16 +160,6 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 		}
 
 		$scope.gotoShopList = function(){
-			var cart={
-					"product_id": $scope.productDetails.id,
-					"price_id": $scope.price_select.id,
-					"amount": $scope.productDetails.number,
-					"total_price": $scope.productDetails.number*$scope.price_select.real_price,
-					"owner_id": $scope.users.owner_id,
-					"owner_type": "Customer",
-					"remark": "xxx",
-					"property": 0
-			}
 			if (!$scope.users.owner_id) {
 				alert("请先登录");
 				return;
@@ -110,13 +167,10 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 			// add function 
 			//$scope.modalObj.showDialog();
 
-			pdtIns.addTobagList($scope.addTobagData,{cart:cart}).then(function(data){
+			pdtIns.addTobagList($scope.addTobagData,{cart:$scope.buildCarts()}).then(function(data){
 				
 				$scope.modalObj.hideDialog();
 				$scope.modalObjSuc.showDialogdwhite();
-			
-			
-
 
 				$scope.shopListNum.num++;
 				
@@ -164,6 +218,7 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 					
 					productDetails.number=10;
 					productDetails.money=100;
+					productDetails.plans=[];
 				}else if(productDetails.category_id===4){
 					
 				}

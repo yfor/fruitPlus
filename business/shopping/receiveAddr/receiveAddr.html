@@ -6,7 +6,23 @@
 			新增收货地址
 			<!-- <span class="am-fr" ng-click="saveUserAddr()">保存</span> -->
 		</div>
+
 		<div class="am-u-sm-12 reAdd-userDetails">
+			<ul class="am-list am-list-static am-list-border" ng-repeat = "address in addresses track by $index">
+			  <li >
+				
+				<div  style = "text-align: right;margin-right: 5%;" >
+					 <span  class = "am-icon-trash-o" ng-click = "deleteAddr(address.id)"></span>
+				</div>
+				<div ng-click ="selectAddr(address)">
+					<i class="am-icon-map-pin am-icon-fw" ></i>
+					{{address.name}} {{address.phone}}
+					{{address.address}}
+				</div>
+				</li>
+			  <li>
+		
+			</ul>
 			<form class="am-form-group">
 				<label for="userName">收货人</label>
 				<input type="text" id="userName"  ng-model="currentuser.name"/>
@@ -15,22 +31,6 @@
 				<label for="userPhon">手机号码</label>
 				<input type="text" id="userPhon" ng-model="currentuser.phone"/>
 			</form>
-			<div class = "am-form-group">
-				<label for="userPhon">省份：</label>
-				<select id="province" name="province">
-            		<option value="">
-				             请选择省名
-				    </option>
-				</select>
-			</div>
-			<div class = "am-form-group">
-				<label for="userPhon">城市：</label>
-				<select id="city" name="city">
-		            <option value="">
-		             请选择城市名
-		            </option>
-				</select>
-			</div>
 
 			<form class="am-form-group">
 				<label for="detailAddress">详细地址</label>
@@ -39,9 +39,10 @@
 		</div>
 
 		<div class="am-u-sm-12 am-text-center reAdd-prompt">
-			<h3>熊笨熊提示您请填写真实身份信息</h3>
-			<p>请填写真实姓名和身份证信息</p>
+			<h3>目前支持配送地点</h3>
+			<p>软件新城及其周边地区</p>
 		</div>
-		<button class="am-btn paym-btn" ng-click="saveUserAddr();">保存地址</button>
+		<button class="am-btn paym-btn" ng-click="saveUserAddr();">新增地址</button>
  	</div>
 </div>
+

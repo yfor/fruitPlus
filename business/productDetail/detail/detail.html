@@ -59,9 +59,9 @@
 			<div  class="am-u-sm-12 det-value teaminput">
 				<ul class="sku" >
 					<li class="teamset" ng-repeat = "plan in productDetails.plans track by $index"   style="font-size:12px;color:#333;padding-bottom:5px">
-							<div class="proLi-selectGoods" ng-click = "p.changStatus();getAllPrice()"
+							<div class="proLi-selectGoods" ng-click = "changStatus(plan,$index)"
 ">
-								<input type="radio"  />
+								<input type="radio"  ng-checked = "plan.checked "/>
 							</div>
 							<ul >
 							<li ng-repeat = "p in plan.plans track by $index" >
@@ -130,4 +130,5 @@
     <div am-modal-plug options = "modalObj"></div>
     <div am-modal-plug options = "modalObjSuc"></div>
     <div am-modal-plug options = "modalObjErr"></div>
+	<div am-modal-plug options = "modalObjErrComp"></div>
 </div>

@@ -78,7 +78,6 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 				// $scope.$apply();
 			},function(err){
 				alert("网络不流畅，请重新操作！")
-				// alert(JSON.stringify(err));
 				console.log(err,"shopInc...err....")
 			});
 		}

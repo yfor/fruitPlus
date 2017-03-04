@@ -28,7 +28,7 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		    "buyer_id": $scope.users.customer.id,
 		    "buyer_type": "Customer",
 		    "shopping_cart_ids": shopping_cart_ids,
-		    "address_id": 463
+		    "address_id": $scope.createOrderAddress.address.id
 		  }
 		
 
@@ -79,28 +79,33 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		}
 		// address save
 		
-		function filterDefault(data){
-			if (!data.length) {
-				$scope.createOrderAddress.address = "";
-				return;
-			};
-			
-			for (var i = 0; i < data.length; i++) {
-				if (data[i].is_default == true) {
-					$scope.createOrderAddress.address = data[i];
-					break;
-					console.log($scope.createOrderAddress.address)
-				};
-			};
-		}
+
 
 		function initAddress(){
+		
 			shopInc.getAccountAddress($scope.users.owner_id).then(function(data){
 			// shopInc.getAccountAddress($scope.users.customer.id).then(function(data){
 				console.log(data);
 				filterDefault(data.data)
 				console.log($scope.createOrderAddress.address)
-
+				function filterDefault(data){
+					if (!data.length) {
+						$scope.createOrderAddress.address = "";
+						return;
+					};
+					
+					for (var i = 0; i < data.length; i++) {
+						if (data[i].is_default == true) {
+							var address=data[i];
+							address.detailed_address=address.name + " "+address.phone
+							
+							+ " "+address.address ;
+							$scope.createOrderAddress.address = address;
+							break;
+						
+						};
+					};
+				}
 			},function(err){
 
 			});

@@ -28,10 +28,11 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 						})
 				}
 				setTimeout(function(){
-						$(".loading").hide();				
+					$(".loading").hide();				
 				});	
 			},function(err){
-				console.log(err)
+				console.log(err);
+				alert("我们出现了一些错误");
 			});
 				
 
