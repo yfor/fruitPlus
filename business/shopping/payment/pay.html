@@ -39,6 +39,22 @@
 
     <div class="am-u-sm-12 paym-pay">
         <div class="paym-itemStyle">&nbsp; &nbsp;  <span class="am-fr">合计金额：¥{{allPrice}}</span></div>
+		<div ng-show="productDetails.category_id!==3"  class="am-u-sm-12 det-value">
+			<ul class="sku">
+				<li >
+					<dl><dt style="font-size:12px;color:#333;padding-bottom:5px">配送时间:<a style="color:#f6325b;margin-left:15px;"></a></dt>
+					<dd class="sku-item" >
+						<span data-key="0" ng-repeat="time in timeSelects track by $index" class="select {{time==selecTime?'ed':''}}" ng-click="selectTime(time)">{{time}}</span>
+					 
+					</dd>
+					<dd class="sku-item" >
+					<span class="am-icon-commenting commenting" >{{tips}}</span>
+					
+					</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
         <div class="paym-paymentMode">
             <ul>
                 <li class="item"><span class="am-icon-weixin am-icon-md" style="color: #04E800"></span> 微信支付 </li>

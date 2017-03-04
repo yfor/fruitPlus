@@ -9,7 +9,59 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		var header = {
 			headers:$scope.users.setheaders
 		}
-
+		function selectTimeByDate(){
+				var a=new Date();
+				var getHours=a.getHours();
+				var getMinutes=a.getMinutes();
+				
+				if(getHours<10){
+					return 1;
+				}
+				if(getHours<11&&getMinutes<30){
+					return 1;
+				}
+				if(getHours<14){
+					return 2;
+				}
+				if(getHours<15&&getMinutes<30){
+					return 2;
+				}	
+				return 3;
+		}
+		var type=selectTimeByDate();
+		if(type==1){
+			$scope.selecTime="上午11点"
+		}else if(type==2){
+			$scope.selecTime="下午三点"
+		}else{
+			$scope.selecTime="即时配送"
+		}
+		buildTipe();
+		function buildTipe(){
+			var type=selectTimeByDate();
+			if($scope.selecTime=="即时配送"){
+				var tips="三小时内配送";
+			}else if($scope.selecTime=="上午11点"){
+				var  tips="";
+				if(type>1){
+					var  tips="明天";
+				}
+				tips+=$scope.selecTime;
+			}else{
+				var  tips="";
+				if(type>2){
+					var  tips="明天";
+				}
+				tips+=$scope.selecTime;
+			}
+			$scope.tips=tips;
+		}		
+		$scope.timeSelects=["即时配送","上午11点","下午三点"]
+		
+		$scope.selectTime=function (time){
+			$scope.selecTime=time;
+			buildTipe()
+		}
 		// createOrderAndPay
 		$scope.getSigntureAndPay = function(){
 			// check address
