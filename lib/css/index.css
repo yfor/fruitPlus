@@ -210,6 +210,12 @@ li{ list-style: none; }
 .commenting{
 	margin-top:5px;
 }
+.subitems{
+	height: auto;
+    padding: 0px 5px 0px 5px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
 /*menu*/
 .menu{  
     position: fixed;

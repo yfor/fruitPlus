@@ -83,6 +83,7 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 					setTimeout(function(){
 						$scope.modalObjErrComp.hideDialog();
 					},2000)
+					return;
 				}
 				var computesPlan=$scope.productDetails.plans[$scope.productDetails.planIndex];
 

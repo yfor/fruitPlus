@@ -37,8 +37,8 @@
                     <div class="proLi-selectGoods" ng-click = "p.changStatus();getAllPrice()">
                         <input type="checkbox" ng-checked = "p.status == 'done'" />
                     </div>
-                    <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures[2][0].document.url}}" class="am-img-responsive" alt="图片"/></div>
-                    <div class="proLi-goodsDetails">
+                    <div ng-if="!p.subitems.length" class="proLi-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures[2][0].document.url}}" class="am-img-responsive" alt="图片"/></div>
+                    <div class="proLi-goodsDetails" ng-if="!p.subitems.length">
                         <div class="proLi-details">{{p.product.detail}}{{p.product.name}}</div>
                         <div class="proLi-value">
                             <div class="proLi-goodsValue">￥{{p.amount*p.price.real_price}}</div>
@@ -51,6 +51,25 @@
                             </div>
                         </div>
                     </div>
+                    <div  ng-if="p.subitems.length">
+				
+							<table class="am-table">
+							<tbody>
+								<tr>
+									<td>{{p.product.name}}</td>
+									<td>￥{{p.amount_o*p.price.real_price_o}} </td>
+									<td>{{p.amount_o}} {{units[p.price.unit].name}}</td>
+								</tr>
+								<tr ng-repeat = "plan in p.subitems track by $index">
+								<td>{{plan.product.name}}  </td>
+								<td>￥{{plan.amount*plan.price.real_price}} </td>
+								<td>{{plan.amount}} {{units[plan.price.unit].name}}</td>
+								</tr>
+							
+							</tbody>
+							</table>
+						{{p.price.real_price}}
+                    </div>					
                 </li>
 
                 <li ng-if ="!pdtList.length" class = "proLi-empty">
@@ -67,7 +86,6 @@
         </div>
 
     </div>
-
 </div>
 	<div ng-if = "users.owner_id"  class="am-topbar am-topbar-fixed-bottom" style="bottom: 0px;margin-bottom:0px;z-index: 100000000;">
 		<div class = "am-g">

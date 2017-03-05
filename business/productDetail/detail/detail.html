@@ -59,20 +59,20 @@
 			<div  class="am-u-sm-12 det-value teaminput">
 				<ul class="sku" >
 					<li class="teamset" ng-repeat = "plan in productDetails.plans track by $index"   style="font-size:12px;color:#333;padding-bottom:5px">
-							<div class="proLi-selectGoods" ng-click = "changStatus(plan,$index)"
-">
+							<div class="proLi-selectGoods" ng-click = "changStatus(plan,$index)">
 								<input type="radio"  ng-checked = "plan.checked "/>
 							</div>
+							
 							<ul >
 							<li ng-repeat = "p in plan.plans track by $index" >
 							<div class="am-u-sm-12 det-value "> {{p.product}}
-								<span > {{p.price}}</span>
-								<span> {{p.quantity}}</span>
+								<span > ￥{{p.total_price}}</span>
+								<span> {{p.amount}}</span>
 							</div>
 							</li>
 				
 							</ul>	
-						￥{{plan.total_price		}}				
+						￥{{plan.sum_price		}}				
 					</li>
 
 				</ul>

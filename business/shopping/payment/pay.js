@@ -38,22 +38,29 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		}
 		buildTipe();
 		function buildTipe(){
+			var a= new Date();
 			var type=selectTimeByDate();
 			if($scope.selecTime=="即时配送"){
 				var tips="三小时内配送";
 			}else if($scope.selecTime=="上午11点"){
 				var  tips="";
+				a.setHours(11)
 				if(type>1){
+					a.setHours(35)
 					var  tips="明天";
 				}
 				tips+=$scope.selecTime;
 			}else{
 				var  tips="";
+				a.setHours(15)
 				if(type>2){
+					a.setHours(39)
 					var  tips="明天";
 				}
 				tips+=$scope.selecTime;
 			}
+			
+			$scope.delivery_time=a.Format("yyyy-MM-dd hh:mm:ss");
 			$scope.tips=tips;
 		}		
 		$scope.timeSelects=["即时配送","上午11点","下午三点"]
@@ -64,6 +71,8 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		}
 		// createOrderAndPay
 		$scope.getSigntureAndPay = function(){
+			
+			
 			// check address
 			if (!($scope.createOrderAddress.address && $scope.createOrderAddress.address.id ))  {
 				alert("请先添加收获地址");
@@ -80,6 +89,7 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		    "buyer_id": $scope.users.customer.id,
 		    "buyer_type": "Customer",
 		    "shopping_cart_ids": shopping_cart_ids,
+			delivery_time :$scope.delivery_time,
 		    "address_id": $scope.createOrderAddress.address.id
 		  }
 		

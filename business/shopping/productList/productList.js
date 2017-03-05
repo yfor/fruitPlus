@@ -71,7 +71,24 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 
 				// alert(JSON.stringify(data.data));
 				console.log(data,"getAllOrderList....")
-				$scope.pdtList = data.data.carts;
+				var pdtList= data.data.carts;
+				for(var i=0;i<pdtList.length;i++){
+					var p=pdtList[i];
+					//$scope.pdtList[i].price.real_price * $scope.pdtList[i].amount
+					if(p.subitems.length>0){
+						var real_price=p.price.real_price*p.amount;
+						for(var j=0;j<p.subitems.length;j++){
+							var ps=p.subitems[j];
+							real_price+=ps.price.real_price*ps.amount;
+						}
+						
+						p.price.real_price_o=p.price.real_price;
+						p.amount_o=p.amount;	
+						p.price.real_price=real_price;
+						p.amount=1;
+					}
+				}
+				$scope.pdtList=pdtList;
 				$scope.shopListNum.num = $scope.pdtList.length;
 				$scope.getAllPrice(true);
 				// alert($scope.shopListNum.num)
