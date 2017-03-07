@@ -216,6 +216,31 @@ li{ list-style: none; }
     margin-top: 50px;
     margin-bottom: 0px;
 }
+
+.circle{
+	 
+	 border: 2px solid #9c8e8e;
+	 height: 20vw;
+	 text-align:center;
+	 margin-bottom: 0px;
+	 margin-left: 10%;
+	 width: 20%;
+}
+.center{
+	 text-align:center;
+}
+/**
+.yg{
+	background-color:#3333CC;
+}
+
+.wcl{
+	background-color:#CC3300;
+}
+.sysj{
+	background-color:#FFFF33;
+}
+**/
 /*menu*/
 .menu{  
     position: fixed;
@@ -394,9 +419,9 @@ enter*/
 
 /*detail*/
 .det-details{  margin-top: 10px;  font-size: 14px;  padding: 0px 10px 0px 10px;  border-bottom: 1px solid silver;  }
-.det-details span{  margin-left: 10px;  }
+.det-lastname{  margin-left: 40px;  }
 .det-value{  color: #333333;  padding: 3px 0px;  }
-.det-lastValue{  text-decoration: line-through;  color: #3c3c3c;  }
+.det-lastValue{  margin-left: 10px;text-decoration: line-through;  color: #3c3c3c;  }
 .det-collect{  font-size: 12px;  border-left: 1px solid silver;  }
 .det-sign{ padding: 10px;  font-size: 12px;  color: brown;  border-bottom: 1px solid silver;  }
 .det-sign p{  margin: 0px;  }

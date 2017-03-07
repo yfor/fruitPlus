@@ -223,8 +223,21 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 				}else if(productDetails.category_id===4){
 					
 				}
+				if(productDetails.property===3){
+					
+					if(productDetails.group_buying&&productDetails.group_buying.end_time){
+						var end_time= new Date(productDetails.group_buying.end_time);
+						var now = new Date();
+						var timeLimits=end_time-now;
+						if(timeLimits<0){
+							productDetails.group_buying.end_day=0;
+						}else{
+							productDetails.group_buying.end_day=end_time*1000*60*60*24;
+						}
+					}
+				}
 				$scope.productDetails=productDetails;
-				
+	
 			},function(err){
 				console.log("error....");
 			});

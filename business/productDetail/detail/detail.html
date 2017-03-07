@@ -8,10 +8,46 @@
 			<div class="am-u-sm-10">{{productDetails.description}} {{productDetails.detail}}</div>
 			<!--长度不变 在跳跃-->
 			<div ng-show="productDetails.category_id!==3" class="am-u-sm-12 det-value"> {{price_select.real_price}}元/{{units[price_select.unit].name}}
-				<span class="det-lastValue"></span>
-				<span> </span>
+				<span class="det-lastname"> 市场价：</span>
+				<span class="det-lastValue"> {{price_select.price}}元/{{units[price_select.unit].name}}</span>
 			</div>
 			
+		</div>
+		<div ng-show="productDetails.property===3" class="am-u-sm-12 ">
+			<div class="am-u-sm-4 am-vertical-align am-circle circle yg" >
+				<span class="am-vertical-align-middle">{{productDetails.group_buying.current_number}}</span>
+			</div>
+			<div class="am-u-sm-4 am-vertical-align am-circle circle wcl" >
+				<span class="am-vertical-align-middle" >{{productDetails.group_buying.current_number}}%</span>
+			</div>
+			<div class="am-u-sm-4 am-vertical-align am-circle circle sysj" >
+				<span class="am-vertical-align-middle" >{{productDetails.group_buying.end_day}}天</span>
+			</div>			
+		</div>
+		<div ng-show="productDetails.property===3" class="am-u-sm-12 ">
+			<div class="am-u-sm-4 am-vertical-align center" >
+				<span class="am-vertical-align-middle ">已购人数</span>
+			</div>
+			<div class="am-u-sm-4 am-vertical-align center" >
+				<span class="am-vertical-align-middle" >完成率</span>
+			</div>
+			<div class="am-u-sm-4 am-vertical-align center" >
+				<span class="am-vertical-align-middle" >剩余时间</span>
+			</div>			
+		</div>
+		<div ng-show="productDetails.property===3"  class="am-u-sm-12 det-value">
+			<ul class="sku">
+				<li ng-show="productDetails.category_id===1">
+					<dl>
+						<dt style="font-size:12px;color:#333;padding-bottom:5px">
+						目标数量:<a style="color:#f6325b;margin-left:15px;">{{productDetails.group_buying.target_amount}}斤</a>
+						
+						已购:<a style="color:#f6325b;margin-left:15px;">{{productDetails.group_buying.current_amount}}斤</a>
+						</dt>
+						
+					</dl>
+				</li>
+			</ul>
 		</div>
 		<div ng-show="productDetails.category_id!==3"  class="am-u-sm-12 det-value">
 			<ul class="sku">
