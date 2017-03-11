@@ -157,7 +157,7 @@ define(["angular","ui-router"],function(angular,uirouter){
 		});
 
 		$stateProvider.state("orderDet",{
-			url:"/orderDet",
+			url:"/orderDet?:orderId",
 			params:{statusId:null},
 			templateUrl:"./business/account/orderDet/orderDet.html",
 			controller:"orderDet.ctrl",

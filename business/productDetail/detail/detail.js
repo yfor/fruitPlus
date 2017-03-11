@@ -175,7 +175,7 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 
 				$scope.shopListNum.num++;
 				
-				orderList.allPrice = cart.total_price;
+				orderList.allPrice = data.data.total_price;
 				orderList.setList([data.data]);
 				$state.go("payment.pay");
 			},function(err){
@@ -232,7 +232,7 @@ define(["amaze","framework/services/productService"],function (amaze,pdt){
 						if(timeLimits<0){
 							productDetails.group_buying.end_day=0;
 						}else{
-							productDetails.group_buying.end_day=end_time*1000*60*60*24;
+							productDetails.group_buying.end_day=Math.ceil(timeLimits/(1000*60*60*24));
 						}
 					}
 				}

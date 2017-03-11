@@ -3,22 +3,71 @@
         <!-- slider start -->
         <div am-swiper-plug options = "adverts" style="height: 176px;"></div>
         <!-- slider end -->
-		<div class = "nav">
-		<ul>
-			<li class= "" ng-click="scrollTo(2)">
-				<span class="am-icon-suitcase am-icon-md suitcase"></span>
-				个人套餐
-			</li>
-			<li class= "" ng-click="scrollTo(3)">
-				<span class="am-icon-group  am-icon-md group"></span>
-				团队套餐
-			</li>
-			<li class= "" ng-click="scrollTo(4)">
-				<span class="am-icon-random am-icon-md random"></span>
-				周边
-			</li>
-		</ul>
+		<div class="toothbg"></div>
+		<div class = "xianshi">
+			<h2>限时抢购</h2> 
+			<span>剩余
+				<span class = "time">02</span>:
+				<span class = "time">24</span>:
+				<span class = "time">02</span>
+			</span>
+		</div>
+		<div class="am-u-sm-12 miaosha">
+			<div class="am-u-sm-3" >
+				<img ng-src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg" src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg">
+				<center>苹果</center>
+				<span class = "timemoney">￥0.90</span><span >/500g</span>
+				
+			</div>
+			<div class="am-u-sm-3" >
+				<img ng-src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg" src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg">
+				<center>苹果</center>
+				<span class = "timemoney">￥0.90</span><span >/500g</span>
+			</div>
+			<div class="am-u-sm-3" >
+				<img ng-src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg" src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg">
+				<center>苹果</center>
+				<span class = "timemoney">￥0.90</span><span >/500g</span>
+			</div>		
+			<div class="am-u-sm-3" >
+				<img ng-src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg" src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg">
+				<center>苹果</center>
+				<span class = "timemoney">￥0.90</span><span >/500g</span>
+			</div>				
 		</div>		
+		<div class="am-u-sm-12 ">
+		<div class="toothbg"></div>
+		
+		</div>
+		
+		<div class="am-u-sm-12 nav">
+			<div class="am-u-sm-3 am-circle" >
+				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
+			</div>
+			<div class="am-u-sm-3 " >
+				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
+			</div>
+			<div class="am-u-sm-3 " >
+				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
+			</div>
+			<div class="am-u-sm-3 " >
+				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
+			</div>			
+		</div>
+		<div class="am-u-sm-12 nav-title">
+			<div class="am-u-sm-3 am-vertical-align center" >
+				<span class="am-vertical-align-middle ">单品类</span>
+			</div>
+			<div class="am-u-sm-3 am-vertical-align center" >
+				<span class="am-vertical-align-middle" >单品类</span>
+			</div>
+			<div class="am-u-sm-3 am-vertical-align center" >
+				<span class="am-vertical-align-middle" >套餐类</span>
+			</div>	
+			<div class="am-u-sm-3 am-vertical-align center" >
+				<span class="am-vertical-align-middle" >团购类</span>
+			</div>			
+		</div>	
 		<div class="tcWrap">
 		<div class="xiaowu" id="products_1"><span>单品精选</span></div>
 		<a class="tcItem" ng-repeat = "p in products_1 track by $index"  ng-click = "gotoProductDetail(p.id)">

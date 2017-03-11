@@ -17,10 +17,10 @@ define(["angular","framework/http"],function(angular,https){
 				method:"get"
 			});
 	}
-	accountsReq.prototype.getOrderStatus = function(id){
+	accountsReq.prototype.getOrderDetail = function(id){
 		
 		return this.doRequest({
-			url:"/api/v1/orders?buyer_type=Customer&buyer_id="+ id,
+			url:"/api/v1/orders/"+ id,
 			method:"get"
 		});
 	}

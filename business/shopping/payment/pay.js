@@ -89,42 +89,47 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		    "buyer_id": $scope.users.customer.id,
 		    "buyer_type": "Customer",
 		    "shopping_cart_ids": shopping_cart_ids,
-			delivery_time :$scope.delivery_time,
-		    "address_id": $scope.createOrderAddress.address.id
+			"delivery_time" :$scope.delivery_time,
+		    "address_id": $scope.createOrderAddress.address.id,
+			"pay_away":$scope.payWay
 		  }
 		
 
 			shopInc.createOrderAndPay(header,{order:details}).then(function(data){
-				// alert("777");
-				// console.log(data.data);
+		
 				if(data.code!==0){
 					alert(data.message);
 					return;
 				}
-				var signature = data.data.prepay_data;
+				var createOrderData=data.data.order.data;
+				if($scope.payWay===1){
+					var signature = createOrderData.prepay_data;
+					WeixinJSBridge.invoke(
+						'getBrandWCPayRequest', {
+							"appId" : signature.appId,     //公众号名称，由商户传入
+							"timeStamp": signature.timeStamp.toString(),         //时间戳，自1970年以来的秒数
+							"nonceStr" : signature.nonceStr, //随机串
+							"package" : signature.package,
+							"signType" : signature.signType,         //微信签名方式:
+							"paySign" : signature.paySign    //微信签名
+						},
+
+						function(res){
+							
+							// alert(JSON.stringify(res))
+							if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+								$state.go("orderDet",{orderId:createOrderData.id});
 				
-				WeixinJSBridge.invoke(
-					'getBrandWCPayRequest', {
-						"appId" : signature.appId,     //公众号名称，由商户传入
-						"timeStamp": signature.timeStamp.toString(),         //时间戳，自1970年以来的秒数
-						"nonceStr" : signature.nonceStr, //随机串
-						"package" : signature.package,
-						"signType" : signature.signType,         //微信签名方式:
-						"paySign" : signature.paySign    //微信签名
-					},
 
-					function(res){
-						
-						// alert(JSON.stringify(res))
-						if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-
-							$state.go("accounts")
-
-						}else if(res.err_msg == "get_brand_wcpay_request:cancel"){
-							alert("取消操作")
+							}else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+								alert("取消操作")
+							}
 						}
-					}
-				);
+					);					
+				}else{
+					$state.go("orderDet",{orderId:createOrderData.id});
+				}
+
 
 			},function(err){
 				alert("网络较差，请重新操作！")
@@ -173,7 +178,10 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 			});
 		}
 		initAddress();
-
+		$scope.payWay=2;
+		$scope.selectPayWay=function (type){
+			$scope.payWay=type;
+		}
 	}]
 	return ctrl;
 });

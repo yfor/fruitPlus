@@ -1,10 +1,17 @@
-define(["amaze"],function(){
-    var ctrl = ["$scope","$state","$q",function($scope,$state,$q){
-    	
+define(["amaze","framework/services/accountService"],function(amaze,accountService){
+    var ctrl = ["$scope","$state","$stateParams","$q",function($scope,$state,$stateParams,$q){
+    	var accountIns = new accountService($q);
         function init(){
-        	console.log($scope.orderDetailsDisplay)
-        	$scope.orderCurrent = $scope.orderDetailsDisplay.order;
-        	console.log($scope.orderCurrent)
+			if($stateParams.orderId){
+				accountIns.getOrderDetail($stateParams.orderId).then(function(data){
+				$scope.orderCurrent = data.data;
+			},function(err){
+				// alert(111)
+				alert(err)
+			});
+			}else{
+				$scope.orderCurrent = $scope.orderDetailsDisplay.order;
+			}
         }
 
         init()
