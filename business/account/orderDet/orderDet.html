@@ -30,14 +30,14 @@
                <div class="am-u-sm-3">
                   <img ng-src="{{serviceAddress+pro.product.pictures['方正'][0].url}}" class="am-img-responsive" alt=""/></div>
                <div class="am-u-sm-6 shopDet-intro">
-                   <span>{{pro.product.name}}</span>
+                   <span>{{pro.product_name}}</span>
                    <span class="color"> {{pro.product.detail}} </span>
                    <!-- <span class="exchange">七天退换</span> -->
                </div>
                <div class="am-u-sm-2">
                    <!-- <span class="spanValue">&nbsp;￥30.00</span> -->
-                   <span class="color spanValue pastValue">&nbsp;￥{{pro.product.real_price}}</span>
-                   <span class="color spanValue">&nbsp;x{{pro.quantity}}</span>
+                   <span class="color spanValue pastValue">&nbsp;￥{{detail.product_price}}</span>
+                   <span class="color spanValue">&nbsp;x{{detail.amount}}</span>
                </div>
                <!--<div class="am-u-sm-12">
                    <button class="am-btn am-fr">申请售后</button>

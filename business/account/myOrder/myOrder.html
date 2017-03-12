@@ -18,12 +18,12 @@
 
                 <div ng-if = "o.status == 1 && orderStatus == 0" >
                     <div class="am-storeCnt am-g" ng-repeat = "detail in o.order_details track by $index" >
-                        <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+detail.product.pictures[2][0].document.url}}" class="am-img-responsive" alt="图片"/>
+                        <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+detail.product_img}}" class="am-img-responsive" alt="图片"/>
                         </div>
                         <div class="proLi-goodsDetails" >
-                            <div class="proLi-details">{{detail.product.detail}}{{detail.product.name}}</div>
+                            <div class="proLi-details">{{detail.product.detail}}{{detail.product_name}}</div>
                             <div class="proLi-value">
-                                <div class="proLi-goodsValue">￥{{detail.price.real_price}}</div>
+                                <div class="proLi-goodsValue">￥{{detail.product_price}}</div>
                                 <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
                                     <span>数量</span>
                                     <span>{{detail.amount}}</span>
