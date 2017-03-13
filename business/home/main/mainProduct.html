@@ -1,5 +1,7 @@
 <div  am-show>
-    <div  class="am-u-sm-12 am-u-md-10 am-u-lg-9 am-u-sm-centered" id="contant">
+
+
+	<div  class="am-u-sm-12 am-u-md-10 am-u-lg-9 am-u-sm-centered" id="contant">
         <!-- slider start -->
         <div am-swiper-plug options = "adverts" style="height: 176px;"></div>
         <!-- slider end -->
@@ -12,7 +14,7 @@
 				<span class = "time">02</span>
 			</span>
 		</div>
-		<div class="am-u-sm-12 miaosha">
+		<div class="am-u-sm-12 miaosha"  ui-sref="list">
 			<div class="am-u-sm-3" >
 				<img ng-src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg" src="http://116.62.6.81/uploads/document/document/253/TB28PUMcYJmpuFjSZFwXXaE4VXa___2982292033.jpg">
 				<center>苹果</center>
@@ -40,85 +42,57 @@
 		
 		</div>
 		
-		<div class="am-u-sm-12 nav">
-			<div class="am-u-sm-3 am-circle" >
-				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
-			</div>
+		<div class="am-u-sm-12 main-menu">
 			<div class="am-u-sm-3 " >
 				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
-			</div>
-			<div class="am-u-sm-3 " >
-				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
-			</div>
-			<div class="am-u-sm-3 " >
-				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
-			</div>			
-		</div>
-		<div class="am-u-sm-12 nav-title">
-			<div class="am-u-sm-3 am-vertical-align center" >
 				<span class="am-vertical-align-middle ">单品类</span>
 			</div>
-			<div class="am-u-sm-3 am-vertical-align center" >
-				<span class="am-vertical-align-middle" >单品类</span>
+			<div class="am-u-sm-3" >
+				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
+				<span class="am-vertical-align-middle ">果切类</span>
 			</div>
-			<div class="am-u-sm-3 am-vertical-align center" >
-				<span class="am-vertical-align-middle" >套餐类</span>
-			</div>	
-			<div class="am-u-sm-3 am-vertical-align center" >
-				<span class="am-vertical-align-middle" >团购类</span>
-			</div>			
-		</div>	
-		<div class="tcWrap">
-		<div class="xiaowu" id="products_1"><span>单品精选</span></div>
-		<a class="tcItem" ng-repeat = "p in products_1 track by $index"  ng-click = "gotoProductDetail(p.id)">
-			<div class="tcImage" style="padding-bottom:68%">
-			<img ng-src="{{serviceAddress+p.pictures[2][0].document.url}}">
-				<i class="icon11"></i>
+			<div class="am-u-sm-3" ui-sref="detail({ productId: 2226 })" >
+				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
+				<span class="am-vertical-align-middle ">套餐类</span>
 			</div>
-			
-			<dl>
-			  <dt>{{p.name}}<i>¥{{p.prices[0].real_price}}</i></dt>
-			  <dd>{{p.description}}</dd>
-			</dl>
-		</a>
-		<div class="xiaowu" id="products_2"><span>个人套餐</span></div>
-		<a class="tcItem" ng-repeat = "p in products_2 track by $index"  ng-click = "gotoProductDetail(p.id)">
-			<div class="tcImage" style="padding-bottom:68%">
-			<img ng-src="{{serviceAddress+p.pictures[2][0].document.url}}">
-				<i class="icon11"></i>
+			<div class="am-u-sm-3" >
+				<img ng-src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg" src="http://116.62.6.81/uploads/document/document/300/TB2CXRdehaK.eBjSZFwXXXjsFXa___2982510473.jpg">
+				<span class="am-vertical-align-middle ">团购类</span>
 			</div>
-			
-			<dl>
-			  <dt>{{p.name}}<i>¥{{p.prices[0].real_price}}</i></dt>
-			  <dd>{{p.description}}</dd>
-			</dl>
-		</a>
+		</div>
+		<div class="tcWrap  product">
+		<div class=" product-title" id="products_1">热门选购</div>
+			<div data-am-widget="list_news" class="am-list-news am-list-news-default product-list" >
+				<!--列表标题-->
+				<div class="am-list-news-bd">
+					<ul class="am-list"  >
+						<!--缩略图在标题左边-->
+						<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" ng-repeat = "p in products_1 track by $index" ng-click = "gotoProductDetail(p.id)" >
+							<div class="am-u-sm-4 am-list-thumb">
+								<img ng-src="{{serviceAddress+p.pictures[2][0].document.url}}"/>
+							</div>
 
-		<div class="xiaowu" id="products_3"><span>团队套餐</span></div>
-		<a class="tcItem" ng-repeat = "p in products_3 track by $index"  ng-click = "gotoProductDetail(p.id)">
-			<div class="tcImage" style="padding-bottom:68%">
-			<img ng-src="{{serviceAddress+p.pictures[2][0].document.url}}">
-				<i class="icon11"></i>
-			</div>
-			
-			<dl>
-			  <dt>{{p.name}}<i>¥{{p.prices[0].real_price}}</i></dt>
-			  <dd>{{p.description}}</dd>
-			</dl>
-		</a>
+							<div class=" am-u-sm-8 am-list-main">
+								<h2 class="am-list-item-hd">{{p.name}}</h2>
 
-		<div class="xiaowu" id="products_4"><span>周边</span></div>
-		<a class="tcItem" ng-repeat = "p in products_4 track by $index"  ng-click = "gotoProductDetail(p.id)">
-			<div class="tcImage" style="padding-bottom:68%">
-			<img ng-src="{{serviceAddress+p.pictures[2][0].document.url}}">
-				<i class="icon11"></i>
+								<div class="am-list-item-text">{{p.description}}</div>
+								<div><span class="normal-price">¥{{p.prices[0].real_price}}</span></div>
+
+							</div>
+						</li>
+
+
+					</ul>
+				</div>
+
 			</div>
-			
-			<dl>
-			  <dt>{{p.name}}<i>¥{{p.prices[0].real_price}}</i></dt>
-			  <dd>{{p.description}}</dd>
-			</dl>
-		</a>
+
+
+
+
+
+
+
 		<div class="foot">
 		  <div class="link" style="margin:0px auto 30px">
 			<a href="/">首页</a>

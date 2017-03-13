@@ -256,16 +256,85 @@ li{ list-style: none; }
 	background: gray;
 }
 .miaosha {
-
+    padding-left: 15px;
 	margin: 0px; 
 }
 .miaosha div{
 	
 	margin: 0px; 
 }
+.miaosha .am-u-sm-3{
+    padding:10px 15px 10px 0 ;
+}
 .miaosha div img{
 	margin: 0px; 
-	height: 25vw;
+	1max-height: 25vw;
+    width:100%;
+}
+.main-menu .am-u-sm-3{
+    padding:10px;
+    text-align: center;
+}
+.main-menu .am-u-sm-3 img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.main-menu .am-u-sm-3 span{
+    width: 80%;
+    background: red;
+    font-size: 14px;
+    color: white;
+    border-radius: 14px;
+    text-align: center;
+}
+#products_1{
+    margin-top: 311px;
+}
+.product{
+    margin: 0 0 30px;
+}
+.product-title{
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px 0;
+    background-color: #EA3C54;
+    color: #fff;
+}
+.product-list.am-list-news-default{
+    margin: 0;
+}
+.product-list li .am-u-sm-4{
+    max-height: 99px;
+    margin-bottom: 5px;
+}
+.product-list.am-list-news-default .am-list>li{
+    border-color: transparent;
+    margin-bottom: 5px;
+    padding: 1rem;
+}
+.product-list.am-list-news-default .am-list>li:last-child{
+    margin-bottom: 0px;
+}
+.product-list.am-list-news-default .am-list .am-list-item-desced .am-list-main{
+    padding-left: 10px;
+}
+.product-list .am-list{
+    background-color: #f6f6f6;
+    margin-bottom: 0;
+}
+.am-list-news-default.product-list .am-list .am-list-item-desced .am-list-item-text{
+    margin-bottom: 5px;
+}
+@media only screen and (max-width: 640px) {
+    .am-list-news-default.product-list .am-list-item-thumb-left .am-list-thumb, .am-list-news-default .am-list-item-thumb-right .am-list-thumb{
+        max-height: 99px;
+    }
+}
+span.normal-price{
+    color: red;
+    font-size: 18px;
 }
 .timemoney{
 	color: red;
@@ -354,7 +423,7 @@ li{ list-style: none; }
     
 
 /**********************/
-/*****第二页面样式开始****/
+/*****锟节讹拷页锟斤拷锟斤拷式锟斤拷始****/
 /*********************/
 .home-showGoods{  background: #ffffff;  margin-bottom: 10px;  }
 .home-showGoodsTitle{  margin-bottom: 10px;  }
@@ -430,12 +499,12 @@ li{ list-style: none; }
 .acc-userImg img{  margin:0 auto;  height: 100px;  width: 100px;  }
 .acc-userName{  margin-bottom: 10px;  }
 .acc-userID,.acc-toPayNUm{  padding: 8px 0px;background:#333333; color: white;font-size: 14px;}
-.acc-myPayment{  padding: 10px;  border-bottom: 1px solid silver;font-size: 14px;}
+.acc-myPayment{  padding: 10px;  border-bottom: 1px solid #f6f6f6;font-size: 14px;}
 .acc-myPayment span{  float: right;  margin-left: 15px; color:#999999;font-size: 12px; }
-.acc-paymentList{  padding:8px;  border-bottom: 1px solid silver; font-size: 12px; }
+.acc-paymentList{  padding:8px;  border-bottom: 1px solid #f6f6f6; font-size: 12px; }
 .acc-paymentList span{  display: block;}
 .acc-itemList{  padding:0px 10px 10px 10px; margin-bottom: 50px;font-size: 14px; }
-.acc-itemList div{  padding: 10px 0px;  border-bottom: 1px solid silver;  }
+.acc-itemList div{  padding: 10px 0px;  border-bottom: 1px solid #f6f6f6;  }
 .acc-itemList span{  float: right;  }
 .acc-paymentList img{height: 28px;}
 
@@ -464,21 +533,21 @@ enter*/
 
 
 /*detail*/
-.det-details{  margin-top: 10px;  font-size: 14px;  padding: 0px 10px 0px 10px;  border-bottom: 1px solid silver;  }
+.det-details{  margin-top: 10px;  font-size: 14px;  padding: 0px 10px 0px 10px;  border-bottom: 1px solid #f6f6f6;  }
 .det-lastname{  margin-left: 40px;  }
 .det-value{  color: #333333;  padding: 3px 0px;  }
 .det-lastValue{  margin-left: 10px;text-decoration: line-through;  color: #3c3c3c;  }
-.det-collect{  font-size: 12px;  border-left: 1px solid silver;  }
-.det-sign{ padding: 10px;  font-size: 12px;  color: brown;  border-bottom: 1px solid silver;  }
+.det-collect{  font-size: 12px;  border-left: 1px solid #f6f6f6;  }
+.det-sign{ padding: 10px;  font-size: 12px;  color: brown;  border-bottom: 1px solid #f6f6f6;  }
 .det-sign p{  margin: 0px;  }
-.det-introduce{  background-color: #f1f0eb; color:black; padding: 10px;  font-size: 14px;  border-bottom: 1px solid silver;  }
-.det-productIntro{  padding: 0px; margin:0; border-bottom: 0px solid silver;  }
+.det-introduce{  background-color: #f1f0eb; color:black; padding: 10px;  font-size: 14px;  border-bottom: 1px solid #f6f6f6;  }
+.det-productIntro{  padding: 0px; margin:0; border-bottom: 0px solid #f6f6f6;  }
 .det-productIntro ul{  padding: 0px; margin: 0; border: 0px;}
 .det-hotSale{  margin-bottom: 60px;  }
 .det-hotSale h2{  color: #94D572;  }
 .det-hotSale img{  width: 200px;  height: 150px;  }
 .det-shoppingCart{  line-height: 50px;  }
-.det-home{  border-right: 1px solid silver;  }
+.det-home{  border-right: 1px solid #f6f6f6;  }
 .det-addToCart{  background-color: #94D572;  }
 .menuGoodsNumSec{background-color: #ff7045; position: absolute;margin-top: 5px; border-radius: 100%;width: 18px;height: 18px;font-size: 10px;text-align: center;line-height: 18px;}
 
@@ -500,7 +569,7 @@ enter*/
 .reAdd-address, .reAdd-saveAddress{  line-height: 50px;  font-weight: bold;  padding: 0px 10px;color: black;  }
 .reAdd-address span{color: #999999;}
 .reAdd-userDetails{  margin-top: 60px;  }
-.reAdd-userDetails .am-form-group{  margin-bottom: 10px;  padding:5px 5px 10px 5px;  border-bottom: 1px solid silver;  }
+.reAdd-userDetails .am-form-group{  margin-bottom: 10px;  padding:5px 5px 10px 5px;  border-bottom: 1px solid #f6f6f6;  }
 .reAdd-userDetails .am-form-group label{  width: 30%;  }
 .reAdd-userDetails input,.reAdd-userDetails select ,.reAdd-userDetails textarea{border:1px solid lightgrey;}
 .reAdd-userDetails .am-form-group input,select,textarea{  width: 65%;  background-color: #ffffff;  }
@@ -527,21 +596,21 @@ enter*/
 .payPage-header{ padding-top: 50px;  }
 .payPage-title{ padding-top: 20px;  text-align: center;  font-size: 24px;  font-weight: bold;  }
 .payPage-payment{  font-size: 28px;  text-align: center;  margin-top: 0px;  margin-bottom: 10px;  }
-.payPage-payment>input{  border: 1px solid silver;  text-align: center;  }
-.payPage-payee{ border: 1px solid silver;  padding: 5px 10px; }
+.payPage-payment>input{  border: 1px solid #f6f6f6;  text-align: center;  }
+.payPage-payee{ border: 1px solid #f6f6f6;  padding: 5px 10px; }
 .payPage-payBtn .am-btn{  margin-top: 20px;  width: 80%;  background-color: #999999;color: white;  }
 
 /*coupon*/
 .coup-searchText{  padding-top: 50px; width:90%;margin:10px auto; }
 .coup-searchText input{  width: 80%;  height: 45px;  float: left;  }
-.coup-searchText button{  float: left;  width: 20%;  height: 45px;  background-color: silver;  border: 1px solid  silver;color: white;  }
+.coup-searchText button{  float: left;  width: 20%;  height: 45px;  background-color: #f6f6f6;  border: 1px solid  #f6f6f6;color: white;  }
 .coup-couponList{  padding: 10px;  }
 .coup-couponList a{  color: #3c3c3c;  }
 .coup-couponList li{  padding: 10px 10px 0px 10px;  border-radius: 3px;  margin-bottom: 10px;  }
 .coup-value{  font-size: 26px;  font-weight: bold;  }
 .coup-canUse{  font-weight: bold;  }
 .coup-date{  font-size: 14px;  color:red;  }
-.coup-use{  padding-top: 10px;  border-top: 1px dashed silver;  }
+.coup-use{  padding-top: 10px;  border-top: 1px dashed #f6f6f6;  }
 
 /*collect*/
 .coll-tab [data-am-widget="tabs"]{  margin: 0px;  }
@@ -582,7 +651,7 @@ enter*/
 .search-input{  width: 80%;  float: left;  border: 1px solid #cccccc; margin: 10px auto;}
 .search-button{  width: 20%;  float: left;  background-color: #cccccc;  color: #ffffff;margin: 10px auto;  }
 .search-history p{  font-size: 14px;  padding: 10px;  margin: 0px;  }
-.search-history span{  margin: 0px 5px;  font-size: 12px;  color: silver;  }
+.search-history span{  margin: 0px 5px;  font-size: 12px;  color: #f6f6f6;  }
 
 
 /*shoppingAfter*/
@@ -590,30 +659,30 @@ enter*/
 .shopDet-success div{  font-size: 16px;  line-height: 100px;  }
 .shopDet-success img{  width: 100px;  height: 100px;  margin-left: 30%;  }
 .shopDet-info{  margin-bottom: 5px;  vertical-align: middle;  }
-.shopDet-infoState, .shopDet-infoAddr{  padding: 10px;  border-bottom: 1px solid silver;  }
+.shopDet-infoState, .shopDet-infoAddr{  padding: 10px;  border-bottom: 1px solid #f6f6f6;  }
 .shopDet-infoState span{  display: block;  }
 .shopDet-lineHeight{  padding-top: 5%;  }
 .shopDet-goodsDet{  background-color: #fbfbfb;  padding: 10px;  }
-.shopDet-goodsDet button{  margin-top: 15px;  background-color: #ffffff;  border: 1px solid silver;  margin-right: 10px;  }
+.shopDet-goodsDet button{  margin-top: 15px;  background-color: #ffffff;  border: 1px solid #f6f6f6;  margin-right: 10px;  }
 .shopDet-goodsDet span{  display: block;  width: 100%;  font-size: 12px;  }
 .shopDet-goodsDet .spanValue{  text-align: right;  }
 .pastValue{  text-decoration: line-through;  }
-.shopDet-goodsDet .color{  color: silver;  }
+.shopDet-goodsDet .color{  color: #f6f6f6;  }
 .exchange{  color: #B80101;  }
 .shopDet-intro{  padding-left: 10px;  }
 .shopDet-seller{  padding: 10px;  }
 .shopDet-safe{  background-color: #fbfbfb;  padding: 10px;  margin-top: 3px;  }
-.shopDet-value{  padding: 5px 0px;  border: 1px solid silver;  }
+.shopDet-value{  padding: 5px 0px;  border: 1px solid #f6f6f6;  }
 .shopDet-trueValue{  padding: 5px 0px;  }
 .shopDet-div{  width: 100%;  height: 10px;  background-color: #fbfbfb;  }
 .shopDet-connection{  padding: 0px;  }
 .shopDet-order{  padding: 5px 10px;  }
-.shopDet-order span{  border: 1px solid silver;  padding: 0px 3px;  }
+.shopDet-order span{  border: 1px solid #f6f6f6;  padding: 0px 3px;  }
 .shopDet-goods p{  margin: 0px;  }
 .shopDet-goods .p1{  font-size: 12px;  padding: 0px 5px;  }
 .shopDet-goods .p2{  font-size: 14px;  padding: 0px 5px;  }
-.shopDet-goods .color1{  color: silver;  }
-.shopDet-goods .padAndBor{  padding: 5px 10px;  border-bottom: 1px solid silver;  }
+.shopDet-goods .color1{  color: #f6f6f6;  }
+.shopDet-goods .padAndBor{  padding: 5px 10px;  border-bottom: 1px solid #f6f6f6;  }
 .padAndBor button span{  color: #94D572;  }
 .shopDet-goods .color2{  color: #222222;  }
 .shopDet-button button{  width: 48%;  }
@@ -647,4 +716,42 @@ enter*/
 
 .swiper-pagination-white .swiper-pagination-bullet{
 	background-color: #666666;
+}
+.acc-payment [class*="am-u-"],.acc-head [class*="am-u-"]{
+    margin-bottom: 0;
+}
+.acc-head{
+    padding: 15px;
+}
+.acc-head .am-u-sm-6{
+    padding: 15px;
+}
+.acc-head .am-u-sm-6 span{
+    display: block;
+}
+.acc-head .am-u-sm-6 span:first-child{
+    margin-bottom: 5px;
+    font-size: 18px;
+	padding: 1px 10px;
+}
+
+.user-account{
+    line-height: 90px;
+    text-align: right;
+}
+.acc-paymentList .am-u-sm-3:nth-child(1) span{
+    color: #ff4f7b;
+}
+.acc-paymentList .am-u-sm-3:nth-child(2) span{
+    color: #59ce00;
+}
+.acc-paymentList .am-u-sm-3:nth-child(3) span{
+    color: #38b1e8;
+}
+.acc-paymentList .am-u-sm-3:nth-child(4) span{
+    color: #ff001c;
+}
+.acc-itemList span.am-icon-angle-right{
+    color: #999;
+    font-size: 16px;
 }

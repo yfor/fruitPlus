@@ -42,25 +42,24 @@ define(["angular","ui-router","iscl"],function(angular,uirouter){
 		});
 
 		
-		// $stateProvider.state("home.menu",{
-		// 	url:"/menu",
-		// 	templateUrl:"./business/home/second/secondProduct.html",
-		// 	controller:"second.ctrl",
-		// 	resolve:{
-		// 		deps:function($q,$rootScope){
-		// 			var defered = $q.defer();
-		// 			var dependiences = ["./business/home/second/secondProduct"];
-		// 			require(dependiences,function(ctrl){
-		// 				$rootScope.$apply(function(){
-		// 					$controllerProvider.register("second.ctrl",ctrl);
-		// 					defered.resolve();
-		// 				});
-		// 			});
-		// 			return defered.promise;
-		// 		}
-		// 	},
-		// 	params:{id:{}}
-		// })
+		$stateProvider.state("list",{
+			url:"/list",
+			templateUrl:"./business/home/list/list.html",
+			controller:"list.ctrl",
+			resolve:{
+				deps:function($q,$rootScope){
+					var defered = $q.defer();
+					var dependiences = ["./business/home/list/list"];
+					require(dependiences,function(ctrl){
+						$rootScope.$apply(function(){
+							$controllerProvider.register("list.ctrl",ctrl);
+							defered.resolve();
+						});
+					});
+					return defered.promise;
+				}
+			}
+		});
 		
 	}];
 	// deps = [];
