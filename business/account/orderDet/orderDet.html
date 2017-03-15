@@ -25,20 +25,39 @@
        </div>
 
        <div class="shopDet-goods">
-           <div class="am-g shopDet-seller">熊笨熊旗舰店 &nbsp;<span class="am-icon-angle-right"></span></div>
+           <div class="am-g shopDet-seller">舌尖生鲜 &nbsp;<span class="am-icon-angle-right"></span></div>
            <div class="am-g shopDet-goodsDet" ng-repeat = "pro in orderCurrent.order_details track by $index">
-               <div class="am-u-sm-3">
-                  <img ng-src="{{serviceAddress+pro.product.pictures['方正'][0].url}}" class="am-img-responsive" alt=""/></div>
-               <div class="am-u-sm-6 shopDet-intro">
+               <div class="am-u-sm-3" ng-if="!pro.subitems.length">
+                  <img ng-src="{{serviceAddress+pro.product_img}}" class="am-img-responsive" alt=""/></div>
+               <div class="am-u-sm-6 shopDet-intro" ng-if="!pro.subitems.length">
                    <span>{{pro.product_name}}</span>
                    <span class="color"> {{pro.product.detail}} </span>
                    <!-- <span class="exchange">七天退换</span> -->
                </div>
-               <div class="am-u-sm-2">
+               <div class="am-u-sm-2" ng-if="!pro.subitems.length">
                    <!-- <span class="spanValue">&nbsp;￥30.00</span> -->
-                   <span class="color spanValue pastValue">&nbsp;￥{{detail.product_price}}</span>
-                   <span class="color spanValue">&nbsp;x{{detail.amount}}</span>
+                   <span class="color spanValue pastValue">&nbsp;￥{{pro.product_price}}</span>
+                   <span class="color spanValue">&nbsp;x{{pro.amount}}</span>
                </div>
+				<div  ng-if="pro.subitems.length">
+
+					<table class="am-table">
+					<tbody>
+						<tr>
+							<td>{{pro.product.name}}</td>
+							<td>￥{{pro.product_price}} </td>
+							<td>x{{pro.amount}}</td>
+						</tr>
+						<tr ng-repeat = "plan in pro.subitems track by $index">
+						<td>{{plan.product.name}}  </td>
+						<td>￥{{plan.product_price}} </td>
+						<td>x{{plan.amount}}</td>
+						</tr>
+					
+					</tbody>
+					</table>
+				{{p.price.real_price}}
+				</div>	
                <!--<div class="am-u-sm-12">
                    <button class="am-btn am-fr">申请售后</button>
                    <button class="am-btn am-fr">卖了换钱</button>

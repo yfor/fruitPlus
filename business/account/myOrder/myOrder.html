@@ -16,124 +16,18 @@
             <!-- start repeat list -->
             <div class="am-box" ng-repeat = "o in orderList track by $index">
 
-                <div ng-if = "o.status == 1 && orderStatus == 0" >
-                    <div class="am-storeCnt am-g" ng-repeat = "detail in o.order_details track by $index" >
-                        <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+detail.product_img}}" class="am-img-responsive" alt="图片"/>
-                        </div>
-                        <div class="proLi-goodsDetails" >
-                            <div class="proLi-details">{{detail.product.detail}}{{detail.product_name}}</div>
-                            <div class="proLi-value">
-                                <div class="proLi-goodsValue">￥{{detail.product_price}}</div>
-                                <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
-                                    <span>数量</span>
-                                    <span>{{detail.amount}}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    
-                    <div class="ord-totalThing ">
-                        <span class = "am-btn proLi-toBuyBtn" ng-click = "gotoOrderDet(o)">查看订单状态</span>
-                        <span>共{{o.order_details.length}}件商品&nbsp;&nbsp;总计：{{o.total_price}}</span>
-                    </div>
+                <div ng-if = "o.status == 1 && orderStatus == 0" ng-include="'framework/template/order.html'">
                 </div>
                
-                <div ng-if = "o.status == 2 && orderStatus == 1" >
-                    <div class="am-storeCnt am-g" ng-repeat = "detail in o.order_details track by $index">
-                        <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+detail.product.pictures['方正'][0].url}}" class="am-img-responsive" alt="图片"/>
-                        </div>
-                        <div class="proLi-goodsDetails">
-                            <div class="proLi-details">{{detail.product.detail}}{{detail.product.name}}</div>
-                            <div class="proLi-value">
-                                <div class="proLi-goodsValue">￥{{detail.product.real_price}}</div>
-                                <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
-                                    <span>数量</span>
-                                    <span>{{detail.quantity}}</span>
-                                </div>
-                            </div>
-                        </div>
+                <div ng-if = "o.status == 2 && orderStatus == 1" ng-include="'framework/template/order.html'">
+                </div>
 
-                    </div>
-
-                    <div class="ord-totalThing ">
-                        <span class = "am-btn proLi-toBuyBtn" ng-click = "gotoOrderDet(o)">查看订单状态</span>
-                        <span>共{{o.order_details.length}}件商品&nbsp;&nbsp;总计：{{o.total_price}}</span>
-                    </div>
+                <div ng-if = "o.status == 4 && orderStatus == 3" ng-include="'framework/template/order.html'">
                 </div>
 
                 
-                <div ng-if = "o.status == 3 && orderStatus == 2" >
-                    <div class="am-storeCnt am-g" ng-repeat = "detail in o.order_details track by $index">
-                        <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+detail.product.pictures['方正'][0].url}}" class="am-img-responsive" alt="图片"/>
-                        </div>
-                        <div class="proLi-goodsDetails">
-                            <div class="proLi-details">{{detail.product.detail}}{{detail.product.name}}</div>
-                            <div class="proLi-value">
-                                <div class="proLi-goodsValue">￥{{detail.product.real_price}}</div>
-                                <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
-                                    <span>数量</span>
-                                    <span>{{detail.quantity}}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="ord-totalThing ">
-                        <span class = "am-btn proLi-toBuyBtn" ng-click = "gotoOrderDet(o)">查看订单状态</span>
-                        <span>共{{o.order_details.length}}件商品&nbsp;&nbsp;总计：{{o.total_price}}</span>
-                    </div>
+                <div ng-if = "orderStatus == 4" ng-include="'framework/template/order.html'">
                 </div>
-
-                <div ng-if = "o.status == 4 && orderStatus == 3" >
-                    <div class="am-storeCnt am-g" ng-repeat = "detail in o.order_details track by $index">
-                        <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+detail.product.pictures['方正'][0].url}}" class="am-img-responsive" alt="图片"/>
-                        </div>
-                        <div class="proLi-goodsDetails">
-                            <div class="proLi-details">{{detail.product.detail}}{{detail.product.name}}</div>
-                            <div class="proLi-value">
-                                <div class="proLi-goodsValue">￥{{detail.product.real_price}}</div>
-                                <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
-                                    <span>数量</span>
-                                    <span>{{detail.quantity}}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="ord-totalThing ">
-                        <span class = "am-btn proLi-toBuyBtn" ng-click = "gotoOrderDet(o)">查看订单状态</span>
-                        <span>共{{o.order_details.length}}件商品&nbsp;&nbsp;总计：{{o.total_price}}</span>
-                    </div>
-                </div>
-
-                
-                <div ng-if = "orderStatus == 4" >
-                    <div class="am-storeCnt am-g" ng-repeat = "detail in o.order_details track by $index">
-                        <div class="proLi-goodsImg"><img ng-src="{{serviceAddress+detail.product.pictures['方正'][0].url}}" class="am-img-responsive" alt="图片"/>
-                        </div>
-                        <div class="proLi-goodsDetails">
-                            <div class="proLi-details">{{detail.product.detail}}{{detail.product.name}}</div>
-                            <div class="proLi-value">
-                                <div class="proLi-goodsValue">￥{{detail.product.real_price}}</div>
-                                <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
-                                    <span>数量</span>
-                                    <span>{{detail.quantity}}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="ord-totalThing ">
-                        <span class = "am-btn proLi-toBuyBtn" ng-click = "gotoOrderDet(o)">查看订单状态</span>
-                        <span>共{{o.order_details.length}}件商品&nbsp;&nbsp;总计：{{o.total_price}}</span>
-                    </div>
-                </div>
-            </div>
             <!-- end repeat list -->
             <!-- start no records -->
             <div ng-if = "orderStatus == 0" style = "text-align:center;margin: 20px 0 0 0" >

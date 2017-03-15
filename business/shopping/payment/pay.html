@@ -24,11 +24,29 @@
         <ul>
             <li style = "background-color:#fbfbfb" class="am-u-sm-12" ng-repeat = " p in displayOrderList track by $index">
 				
-                <div class="paym-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures[2][0].document.url}}" alt=""/></div>
-                <div class="paym-goodsDetails">
+                <div ng-if="!p.subitems.length" class="paym-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures[2][0].document.url}}" alt=""/></div>
+                <div ng-if="!p.subitems.length" class="paym-goodsDetails">
                     <p>{{p.product.detail}}{{p.product.name}}</p>
                     <p class="paym-goodsValue">￥{{p.price.real_price}} <span>x{{p.amount}}</span></p>
                 </div>
+				<div  ng-if="p.subitems.length">
+			
+						<table class="am-table">
+						<tbody>
+							<tr>
+								<td>{{p.product.name}}</td>
+								<td>￥{{p.amount_o*p.price.real_price_o}} </td>
+								<td>{{p.amount_o}} {{units[p.price.unit].name}}</td>
+							</tr>
+							<tr ng-repeat = "plan in p.subitems track by $index">
+							<td>{{plan.product.name}}  </td>
+							<td>￥{{plan.amount*plan.price.real_price}} </td>
+							<td>{{plan.amount}} {{units[plan.price.unit].name}}</td>
+							</tr>
+						
+						</tbody>
+						</table>
+				</div>					
             </li>
         </ul>
     </div>

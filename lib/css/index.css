@@ -666,8 +666,7 @@ enter*/
 .shopDet-goodsDet button{  margin-top: 15px;  background-color: #ffffff;  border: 1px solid #f6f6f6;  margin-right: 10px;  }
 .shopDet-goodsDet span{  display: block;  width: 100%;  font-size: 12px;  }
 .shopDet-goodsDet .spanValue{  text-align: right;  }
-.pastValue{  text-decoration: line-through;  }
-.shopDet-goodsDet .color{  color: #f6f6f6;  }
+
 .exchange{  color: #B80101;  }
 .shopDet-intro{  padding-left: 10px;  }
 .shopDet-seller{  padding: 10px;  }
