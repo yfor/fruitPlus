@@ -333,8 +333,8 @@ li{ list-style: none; }
     }
 }
 span.normal-price{
+    font-size: 16px;
     color: red;
-    font-size: 18px;
 }
 .timemoney{
 	color: red;
@@ -753,4 +753,70 @@ enter*/
 .acc-itemList span.am-icon-angle-right{
     color: #999;
     font-size: 16px;
+}
+.group-buy li{
+    border-bottom:1px solid #f6f6f6;
+    color: #999999;
+    padding:10px 0;
+}
+.group-buy li span{
+    color:#333;
+}
+.group-buy li input{
+    color: #999;
+    font-size: 14px;
+    position: relative;
+    top: -2px;
+}
+.group-buy .unit{
+    float: right;
+    color: #999;
+    margin-right: 15px;
+}
+.btn-recommend{
+    display: block;
+    text-align: center;
+    color: #F76282;
+    font-size: 16px;
+}
+.btn-recommend i{
+    position: relative;
+    top: -10px;
+    font-size: 20px;
+}
+.group-buy-table{
+    background-color: #fbfbfb;
+    margin-bottom: 1px;
+}
+.group-buy-table tbody>tr>td{
+    border-color:transparent;
+}
+.product-group{
+    display: inline-block;
+    position: relative;
+    left: 15px;
+    margin-bottom: 5px;
+}
+.product-list{
+    overflow: hidden;
+    margin-bottom: 0;
+    margin-top: 40px;
+}
+.product-list li{
+    margin-top: 5px;
+}
+body{
+    font-family: 微软雅黑;
+}
+.pdtfix{
+  line-height: 40px;
+}
+.product-list [class*="am-u-"] {
+  padding: 0px;
+  margin-bottom: 5px;
+}
+.proLi-list ul {
+    margin-top: 40px;
+    padding: 0px 0px 50px 0px;
+    margin-bottom: 15px;
 }

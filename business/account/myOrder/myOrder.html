@@ -22,12 +22,13 @@
                 <div ng-if = "o.status == 2 && orderStatus == 1" ng-include="'framework/template/order.html'">
                 </div>
 
-                <div ng-if = "o.status == 4 && orderStatus == 3" ng-include="'framework/template/order.html'">
+                <div ng-if = "o.status == 3 && orderStatus == 3" ng-include="'framework/template/order.html'">
                 </div>
 
                 
                 <div ng-if = "orderStatus == 4" ng-include="'framework/template/order.html'">
                 </div>
+			</div>				
             <!-- end repeat list -->
             <!-- start no records -->
             <div ng-if = "orderStatus == 0" style = "text-align:center;margin: 20px 0 0 0" >

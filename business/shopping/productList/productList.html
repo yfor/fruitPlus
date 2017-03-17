@@ -28,7 +28,7 @@
             <div  class = "pdtfix" >
                 <h1 class="am-serif">购物车</h1>
             </div>
-            <ul>
+            <ul class="product-list">
                 <li style = "background-color:#fbfbfb" class="am-u-sm-12" ng-repeat = "p in pdtList track by $index" am-counts production = "p">
                     <div  style = "text-align: right;margin-right: 5%;" >
 					 <span  class = "am-icon-trash-o" ng-click = "deleteProductNumber(p.id)"></span>
@@ -41,7 +41,7 @@
                     <div class="proLi-goodsDetails" ng-if="!p.subitems.length">
                         <div class="proLi-details">{{p.product.detail}}{{p.product.name}}</div>
                         <div class="proLi-value">
-                            <div class="proLi-goodsValue">￥{{p.amount*p.price.real_price}}</div>
+                            <div class="proLi-goodsValue"><span class="normal-price">￥{{p.amount*p.price.real_price}}</span></div>
                             <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
                                 <span>数量</span>
                                 <span ng-if = "p.productEdit" ng-click = "p.reduce();getAllPrice()">-</span>
@@ -51,9 +51,9 @@
                             </div>
                         </div>
                     </div>
-                    <div  ng-if="p.subitems.length">
+                    <div  ng-if="p.subitems.length" class="product-group">
 				
-							<table class="am-table">
+							<table class="am-table group-buy-table">
 							<tbody>
 								<tr>
 									<td>{{p.product.name}}</td>
@@ -68,7 +68,7 @@
 							
 							</tbody>
 							</table>
-						{{p.price.real_price}}
+						<span class="normal-price">￥{{p.price.real_price}}</span>
                     </div>					
                 </li>
 
@@ -89,7 +89,7 @@
 </div>
 	<div ng-if = "users.owner_id"  class="am-topbar am-topbar-fixed-bottom" style="bottom: 0px;margin-bottom:0px;z-index: 100000000;">
 		<div class = "am-g">
-			<div class="am-u-sm-6 am-vertical-align" style= "height:50px;margin-bottom: 0px;">
+			<div class="am-u-sm-6 am-vertical-align" style= "height:50px;margin-bottom: 0px;padding-left: 15px;">
 				<span class="am-vertical-align-middle price-sum">总计 ￥{{allPrice || 0}}</span>
 			</div>
    
