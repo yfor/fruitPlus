@@ -680,7 +680,7 @@ enter*/
 .shopDet-goods p{  margin: 0px;  }
 .shopDet-goods .p1{  font-size: 12px;  padding: 0px 5px;  }
 .shopDet-goods .p2{  font-size: 14px;  padding: 0px 5px;  }
-.shopDet-goods .color1{  color: #f6f6f6;  }
+.shopDet-goods .color1{   }
 .shopDet-goods .padAndBor{  padding: 5px 10px;  border-bottom: 1px solid #f6f6f6;  }
 .padAndBor button span{  color: #94D572;  }
 .shopDet-goods .color2{  color: #222222;  }

@@ -82,10 +82,9 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 							real_price+=ps.price.real_price*ps.amount;
 						}
 						
-						p.price.real_price_o=p.price.real_price;
-						p.amount_o=p.amount;	
-						p.price.real_price=real_price;
-						p.amount=1;
+				
+						p.price.real_price_n=real_price;
+						p.amount_n=1;
 					}
 				}
 				$scope.pdtList=pdtList;

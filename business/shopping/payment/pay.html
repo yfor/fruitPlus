@@ -31,12 +31,12 @@
                 </div>
 				<div  ng-if="p.subitems.length">
 			
-						<table class="am-table">
+						<table class="am-table group-buy-table">
 						<tbody>
 							<tr>
 								<td>{{p.product.name}}</td>
-								<td>￥{{p.amount_o*p.price.real_price_o}} </td>
-								<td>{{p.amount_o}} {{units[p.price.unit].name}}</td>
+								<td>￥{{p.amount*p.price.real_price}} </td>
+								<td>{{p.amount}} {{units[p.price.unit].name}}</td>
 							</tr>
 							<tr ng-repeat = "plan in p.subitems track by $index">
 							<td>{{plan.product.name}}  </td>

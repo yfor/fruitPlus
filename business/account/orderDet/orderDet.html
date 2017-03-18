@@ -10,7 +10,7 @@
            <div class="am-u-sm-5 am-text-center" ng-if = "orderCurrent.status ==2">{{orderCurrent.status == 2 ?"已付款":""}}</div>
            <div class="am-u-sm-5 am-text-center" ng-if = "orderCurrent.status ==3">{{orderCurrent.status == 3 ?"发货":""}}</div>
            <div class="am-u-sm-5 am-text-center" ng-if = "orderCurrent.status ==4">{{orderCurrent.status == 4 ?"完成":""}}</div>
-           <div class="am-u-sm-7 am-center"><img src="lib/images/LOGO.png" class="am-img-responsive" alt=""/></div>
+           <div class="am-u-sm-7 am-center"><img src="lib/images/LOGO.png" class="am-img-responsive am-circle" alt=""/></div>
        </div>
 
        <div class="shopDet-info">
@@ -41,7 +41,7 @@
                </div>
 				<div  ng-if="pro.subitems.length">
 
-					<table class="am-table">
+					<table class="am-table  group-buy-table">
 					<tbody>
 						<tr>
 							<td>{{pro.product.name}}</td>
@@ -79,7 +79,7 @@
            </div>
            <div class="am-g shopDet-div"></div>
            <div class="am-g shopDet-order">
-               <p class="p1 color1">订单编号：{{orderCurrent.order_number}}<span class="am-fr">复制</span></p>
+               <p class="p1 color1">订单编号：{{orderCurrent.order_number}}<span class="am-fr"></span></p>
                <!-- <p class="p1 color1">支付宝交易号：20200202020</p> -->
                <p class="p1 color1">创建时间：{{orderCurrent.created_at}}</p>
                <p class="p1 color1">付款时间：2016-12-13 20:41:11</p>
