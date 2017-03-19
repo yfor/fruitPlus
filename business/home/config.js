@@ -43,7 +43,7 @@ define(["angular","ui-router","iscl"],function(angular,uirouter){
 
 		
 		$stateProvider.state("list",{
-			url:"/list",
+			url:"/list?:type:value",
 			templateUrl:"./business/home/list/list.html",
 			controller:"list.ctrl",
 			resolve:{
@@ -60,7 +60,24 @@ define(["angular","ui-router","iscl"],function(angular,uirouter){
 				}
 			}
 		});
-		
+		$stateProvider.state("table",{
+			url:"/table",
+			templateUrl:"./business/home/table/table.html",
+			controller:"table.ctrl",
+			resolve:{
+				deps:function($q,$rootScope){
+					var defered = $q.defer();
+					var dependiences = ["./business/home/table/table"];
+					require(dependiences,function(ctrl){
+						$rootScope.$apply(function(){
+							$controllerProvider.register("table.ctrl",ctrl);
+							defered.resolve();
+						});
+					});
+					return defered.promise;
+				}
+			}
+		});		
 	}];
 	// deps = [];
 

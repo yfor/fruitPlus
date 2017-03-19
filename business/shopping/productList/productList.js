@@ -7,10 +7,10 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 			var allPrice = 0 ;
 			for (var i = 0; i < $scope.pdtList.length; i++) {
 				if(isFirst){
-					allPrice += ($scope.pdtList[i].price.real_price * $scope.pdtList[i].amount)
+					allPrice += ($scope.pdtList[i].product_price * $scope.pdtList[i].amount)
 				}else{
 					if ($scope.pdtList[i].status == "done") {
-					allPrice += ($scope.pdtList[i].price.real_price * $scope.pdtList[i].amount)
+					allPrice += ($scope.pdtList[i].product_price * $scope.pdtList[i].amount)
 					};
 				}
 

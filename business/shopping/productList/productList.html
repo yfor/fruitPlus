@@ -41,7 +41,7 @@
                     <div class="proLi-goodsDetails" ng-if="!p.subitems.length">
                         <div class="proLi-details">{{p.product.detail}}{{p.product.name}}</div>
                         <div class="proLi-value">
-                            <div class="proLi-goodsValue"><span class="normal-price">￥{{p.amount*p.price.real_price}}</span></div>
+                            <div class="proLi-goodsValue"><span class="normal-price">￥{{p.amount*p.product_price}}</span></div>
                             <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
                                 <span>数量</span>
                                 <span ng-if = "p.productEdit" ng-click = "p.reduce();getAllPrice()">-</span>
