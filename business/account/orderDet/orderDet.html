@@ -1,9 +1,6 @@
 <div class = "am-animation-slide-right" >
-    <div style="background-color:#000000;;height:47px;position:fixed;width:100%">
-        <span class="am-icon-angle-left am-icon-lg am-fl" style="margin:2px 0 2px 5px;color: #ffffff;" ng-click = "historyBack()"></span>
-    </div>
 
-   <div style="padding-top: 48px">
+   <div > 
        <div class="am-g shopDet-success">
            <div class="am-u-sm-5 am-text-center" ng-if = "orderCurrent.status ==0">{{orderCurrent.status == 0 ?"取消" :""}}</div>
            <div class="am-u-sm-5 am-text-center" ng-if = "orderCurrent.status ==1">{{orderCurrent.status == 1 ?"待付款":""}}</div>
@@ -18,9 +15,11 @@
                <div class="am-u-sm-1 shopDet-lineHeight"><span class="am-icon-bus"></span></div>
                <div class="am-u-sm-10">
                    <span>{{orderCurrent.consignee_address}}</span>
+				   <span>{{orderCurrent.consignee_name}}</span>
+				   <span>{{orderCurrent.consignee_phone}}</span>
                    <!-- <span>2016-12-13 20:40:11</span> -->
                </div>
-               <div class="am-u-sm-1 shopDet-lineHeight"><span class="am-icon-angle-right am-fr"></span></div>
+              
            </div>
        </div>
 
@@ -81,8 +80,8 @@
            <div class="am-g shopDet-order">
                <p class="p1 color1">订单编号：{{orderCurrent.order_number}}<span class="am-fr"></span></p>
                <!-- <p class="p1 color1">支付宝交易号：20200202020</p> -->
-               <p class="p1 color1">创建时间：{{orderCurrent.created_at}}</p>
-               <p class="p1 color1">付款时间：2016-12-13 20:41:11</p>
+               <p class="p1 color1">创建时间：{{orderCurrent.created_at|DateFormat}}</p>
+               <p class="p1 color1">付款时间：{{orderCurrent.payment_time|DateFormat}}</p>
                <!-- <p class="p1 color1">发货时间：2016-12-13 20:41:11</p> -->
                <!-- <p class="p1 color1">成交时间：2016-12-13 20:41:11</p> -->
            </div>

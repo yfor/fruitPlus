@@ -6,7 +6,7 @@
         <div am-swiper-plug options = "adverts" style="height: 176px;"></div>
         <!-- slider end -->
 		<div class="toothbg"></div>
-		<div class = "xianshi">
+		<div ng-if="panic_buying_ps.length>0" class = "xianshi">
 			<h2>限时抢购</h2> 
 			<span>剩余
 				<span class = "time">{{timeH}}</span>:
@@ -14,7 +14,7 @@
 				<span class = "time">{{timeS}}</span>
 			</span>
 		</div>
-		<div class="am-u-sm-12 miaosha"  ui-sref="list">
+		<div ng-if="panic_buying_ps.length>0" class="am-u-sm-12 miaosha"  ui-sref="list">
 			<div class="am-u-sm-3" ng-repeat = "p in panic_buying_ps track by $index">
 				<img ng-src="{{serviceAddress+p.pictures[2][0].document.url}}" >
 				<center>{{p.name}}</center>
@@ -23,8 +23,8 @@
 			</div>
 			
 		</div>		
-		<div class="am-u-sm-12 ">
-		<div class="toothbg"></div>
+		<div ng-if="panic_buying_ps.length>0" class="am-u-sm-12 ">
+		<div ng-if="panic_buying_ps.length>0" class="toothbg"></div>
 		
 		</div>
 		
@@ -46,8 +46,8 @@
 				<span class="am-vertical-align-middle ">团购类</span>
 			</div>
 		</div>
-		<div class="tcWrap  product">
-		<div class=" product-title" id="products_1">热门选购</div>
+		<div class="tcWrap">
+		<div class=" product-title" id="{{panic_buying_ps.length>0?'products_1':'products_2'}}">热门选购</div>
 			<div data-am-widget="list_news" class="am-list-news am-list-news-default product-list" >
 				<!--列表标题-->
 				<div class="am-list-news-bd">

@@ -290,6 +290,9 @@ li{ list-style: none; }
 #products_1{
     margin-top: 311px;
 }
+#products_2{
+    margin-top: 150px;
+}
 .product{
     margin: 0 0 30px;
 }
@@ -457,7 +460,7 @@ span.normal-price{
 .proLi-details{margin: 0 5%}
 
 /*payment*/
-.paym-address{  padding-left: 10px;  line-height: 50px;   background-color: #F8F8F8;  }
+.paym-address{  padding-left: 10px;  line-height: 50px;     }
 .paym-goodsList ul{  padding-top: 8px;padding-left: 0;  }
 .paym-paymentMode ul{  height: 100%;  padding: 0px;  }
 .paym-paymentMode li{  list-style: none;font-size: 14px;  margin:5px 0px  8px 0px;  border-bottom: 1px solid silver;  }
@@ -655,7 +658,7 @@ enter*/
 
 
 /*shoppingAfter*/
-.shopDet-success{  height: 100px;  width: 100%;  background-color: #B6DCC1;  }
+.shopDet-success{  height: 100px;  width: 100%;  background-color: #fbfbfb;  }
 .shopDet-success div{  font-size: 16px;  line-height: 100px;  }
 .shopDet-success img{  width: 100px;  height: 100px;  margin-left: 30%;  }
 .shopDet-info{  margin-bottom: 5px;  vertical-align: middle;  }
@@ -698,10 +701,12 @@ enter*/
 	width:100%;
 	height:100%;
 }
+
 .swiper-slide img{
 	width:100%;
 	height:176px;
 }
+
 
 .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
 	margin: 0 3px;
@@ -819,4 +824,21 @@ body{
     margin-top: 40px;
     padding: 0px 0px 50px 0px;
     margin-bottom: 15px;
+}
+
+.pdtfix{
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+    background: #fbfbfb;
+	height:40px;
+	text-align:center;
+
+}
+.editpruduct{
+	position: absolute;
+	top: 5%;
+	right: 0;
+	/*z-index: 101;*/
+	margin: 5px 10px 0 0;
 }

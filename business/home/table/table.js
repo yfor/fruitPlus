@@ -4,6 +4,7 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 		var homePageIns = new homePage($q);
 		var query={};
 		query.category="1";
+		query.property="1";
 		homePageIns.categoryData(query).then(function(data){
 			if(data.code===0){
 				var panic_buying=data.data;

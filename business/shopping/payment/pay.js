@@ -119,7 +119,7 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 							// alert(JSON.stringify(res))
 							if(res.err_msg == "get_brand_wcpay_request:ok" ) {
 								$state.go("orderDet",{orderId:createOrderData.id});
-				
+								getShopListNum();
 
 							}else if(res.err_msg == "get_brand_wcpay_request:cancel"){
 								alert("取消操作")
@@ -128,6 +128,7 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 					);					
 				}else{
 					$state.go("orderDet",{orderId:createOrderData.id});
+					getShopListNum();
 				}
 
 
@@ -146,7 +147,14 @@ define(["amaze","wx","framework/services/shoppingService"],function (amaze,wx,sh
 		}
 		// address save
 		
-
+		function getShopListNum(){
+			shopInc.getAllOrderList($scope.users.customer.id).then(function(data){
+				$scope.shopListNum.num = data.data.total_count;
+			},function(err){
+				alert("网络不流畅，请重新操作！")
+				console.log(err,"shopInc...err....")
+			});
+		}
 
 		function initAddress(){
 		

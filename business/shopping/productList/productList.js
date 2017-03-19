@@ -3,21 +3,40 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 
 		var shopInc = new shopList($q);
 		// console.log($scope.users.owner_id,"owner_id...");
-		$scope.getAllPrice = function(isFirst){
+		$scope.getAllPrice = function(){
 			var allPrice = 0 ;
+			for (var i = 0; i < $scope.pdtList.length; i++) {	
+				if ($scope.pdtList[i].status == "done") {
+					if($scope.pdtList[i].subitems.length>0){
+						allPrice += ($scope.pdtList[i].price.real_price_n * $scope.pdtList[i].amount_n)
+					}else{
+						allPrice += ($scope.pdtList[i].price.real_price * $scope.pdtList[i].amount)
+					}
+				};
+			};
+			$scope.allPrice = (allPrice).toFixed(2);
+			var str=""
+			for (var i = 0; i < $scope.pdtList.length; i++) {	
+				str+=$scope.pdtList[i].status ;
+			}
+			if(str.indexOf("done")>=0&&str.indexOf("pending")<0){
+				$scope.isSelALL=true;
+			}else {
+				$scope.isSelALL=false;
+			}
+		}
+		$scope.isAllPrice = function(isSelALL){
+			
 			for (var i = 0; i < $scope.pdtList.length; i++) {
-				if(isFirst){
-					allPrice += ($scope.pdtList[i].product_price * $scope.pdtList[i].amount)
+				if(isSelALL){
+					$scope.pdtList[i].status = "done";
 				}else{
-					if ($scope.pdtList[i].status == "done") {
-					allPrice += ($scope.pdtList[i].product_price * $scope.pdtList[i].amount)
-					};
+					$scope.pdtList[i].status = "pending"
 				}
 
 			};
-			$scope.allPrice = allPrice;
-		}
-		
+			$scope.getAllPrice()
+		}		
 	
 		// paymentpage
 		$scope.pageStatus = "orderPage"
@@ -89,7 +108,8 @@ define(["amaze","framework/services/shoppingService"],function (amaze,shopList){
 				}
 				$scope.pdtList=pdtList;
 				$scope.shopListNum.num = $scope.pdtList.length;
-				$scope.getAllPrice(true);
+				$scope.isSelALL=true;
+				$scope.isAllPrice($scope.isSelALL);
 				// alert($scope.shopListNum.num)
 				// $scope.$apply();
 			},function(err){

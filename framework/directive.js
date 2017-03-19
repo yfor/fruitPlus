@@ -18,7 +18,13 @@ define(["ui-router","swiper","amaze"],function(router,Swiper,zmaze){
 	    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
 	    return fmt;
 	}
-
+	mod.filter("DateFormat", function() {
+		var filterfun = function(str) {
+			if(!str)return str;
+			return new Date(str).Format("yyyy-MM-dd hh:mm:ss");
+		};
+		return filterfun;
+	});
 	function newGuid(){
 	    var guid = "";
 	    for (var i = 1; i <= 32; i++){

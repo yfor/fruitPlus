@@ -1,22 +1,3 @@
-<style type="text/css">
-    .pdtfix{
-        position: fixed;
-        z-index: 100;
-        width: 100%;
-        background-color:#423e3f;
-        height:40px;
-        text-align:center;
-        color:white
-    }
-    .editpruduct{
-        position: absolute;
-        top: 5%;
-        right: 0;
-        /*z-index: 101;*/
-        margin: 5px 10px 0 0;
-    }
-</style>
-
 <div class = "am-animation-fade">
 
 
@@ -29,21 +10,21 @@
                 <h1 class="am-serif">购物车</h1>
             </div>
             <ul class="product-list">
-                <li style = "background-color:#fbfbfb" class="am-u-sm-12" ng-repeat = "p in pdtList track by $index" am-counts production = "p">
-                    <div  style = "text-align: right;margin-right: 5%;" >
+                <li  style = "background-color:#fbfbfb" class="am-u-sm-12" ng-repeat = "p in pdtList track by $index" am-counts production = "p">
+                    <div ng-click = "p.changStatus();getAllPrice()"  style = "text-align: right;margin-right: 5%;" >
 					 <span  class = "am-icon-trash-o" ng-click = "deleteProductNumber(p.id)"></span>
 					</div>
                     
-                    <div class="proLi-selectGoods" ng-click = "p.changStatus();getAllPrice()">
+                    <div ng-click = "p.changStatus();getAllPrice()" class="proLi-selectGoods" >
                         <input type="checkbox" ng-checked = "p.status == 'done'" />
                     </div>
-                    <div ng-if="!p.subitems.length" class="proLi-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures[2][0].document.url}}" class="am-img-responsive" alt="图片"/></div>
+                    <div ng-click = "p.changStatus();getAllPrice()" ng-if="!p.subitems.length" class="proLi-goodsImg"><img ng-src="{{serviceAddress+p.product.pictures[2][0].document.url}}" class="am-img-responsive" alt="图片"/></div>
                     <div class="proLi-goodsDetails" ng-if="!p.subitems.length">
                         <div class="proLi-details">{{p.product.detail}}{{p.product.name}}</div>
                         <div class="proLi-value">
-                            <div class="proLi-goodsValue"><span class="normal-price">￥{{p.amount*p.product_price}}</span></div>
+                            <div ng-click = "p.changStatus();getAllPrice()" class="proLi-goodsValue"><span class="normal-price">￥{{(p.amount*p.price.real_price).toFixed(2)}}</span></div>
                             <div class="am-btn-group am-btn-group-xs proLi-goodsNum">
-                                <span>数量</span>
+                                <span ng-click = "p.changStatus();getAllPrice()" >数量</span>
                                 <span ng-if = "p.productEdit" ng-click = "p.reduce();getAllPrice()">-</span>
                                 <span>{{p.amount}}{{units[p.price.unit].name}}</span>
                                 <span ng-if = "p.productEdit" ng-click = "p.increase();getAllPrice()">+</span>
@@ -89,8 +70,8 @@
 </div>
 	<div ng-if = "users.owner_id"  class="am-topbar am-topbar-fixed-bottom" style="bottom: 0px;margin-bottom:0px;z-index: 100000000;">
 		<div class = "am-g">
-			<div class="am-u-sm-6 am-vertical-align" style= "height:50px;margin-bottom: 0px;padding-left: 15px;">
-				<span class="am-vertical-align-middle price-sum">总计 ￥{{allPrice || 0}}</span>
+			<div ng-click = "isSelALL=!isSelALL;isAllPrice(isSelALL)" class="am-u-sm-6 am-vertical-align" style= "height:50px;margin-bottom: 0px;padding-left: 15px;">
+				<span class="am-vertical-align-middle price-sum"> <input type="checkbox" ng-checked = "isSelALL" />总计 ￥{{allPrice || 0}}</span>
 			</div>
    
 			<div class="am-u-sm-6 am-vertical-align am-fr" style= "height:50px;margin-bottom: 0px;background-color:#DD2727;color:white;text-align:center">

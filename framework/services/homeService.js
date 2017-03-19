@@ -16,7 +16,12 @@ define(["angular","framework/http"],function(angular,https){
 			method:"get"
 		});
 	}
-
+	homePage.prototype.getAdvert = function(id){
+		return this.doRequest({
+			url:"/api/v1/adverts/"+id,
+			method:"get"
+		});
+	}
 	homePage.prototype.panic_buyings = function(id){
 		return this.doRequest({
 			url:"/api/v1/panic_buyings/"+id,

@@ -27,11 +27,39 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 				$scope.products_1=products_1;
 
 				var panic_buying=data.panic_buying;
+				if(!panic_buying){
+					return;
+				}
 				var panic_buying_ps=[];
 				for(var i=0;i<4&&i<panic_buying.products.length;i++){
 					panic_buying_ps.push(panic_buying.products[i])
 				}
 				$scope.panic_buying_ps=panic_buying_ps;
+				var end_time=new Date(panic_buying.end_time);
+				var promise=$interval(updateTime,1000);
+				function updateTime(){
+					var l=end_time-new Date();
+					if(l>0){
+						var utcdate=new Date(l);
+						var hms=new Date(utcdate-8*60*60*1000);
+						var dd=(hms).Format("dd");
+						$scope.timeH=addZeroIfLessTen(((hms).Format("hh")-0)+(dd-1)*24);
+						$scope.timeM=(hms).Format("mm");
+						$scope.timeS=(hms).Format("ss");
+						
+						function addZeroIfLessTen(str){
+							if(str-0<10)
+								return "0"+str;
+							return str;
+						}
+					}else{
+						$scope.timeH=00;
+						$scope.timeM=00;
+						$scope.timeS=00;
+						$interval.cancel(promise);
+						$scope.panic_buying_ps=[];
+					}
+				}
 				
 				$scope.team_setmealid=data.team_setmeal[0].id;
 				setTimeout(function(){
@@ -45,33 +73,8 @@ define(["amaze","framework/services/homeService"],function (amaze,homePage){
 
 		}
 		init();
-		var end_time=new Date();
-		end_time.setHours(end_time.getHours()+2);
-		var promise=$interval(updateTime,1000);
-		function updateTime(){
-			var l=end_time-new Date();
-			if(l>0){
-				var utcdate=new Date(l);
-				var hms=new Date(utcdate-8*60*60*1000);
-				var dd=(hms).Format("dd");
-				$scope.timeH=addZeroIfLessTen(((hms).Format("hh")-0)+(dd-1)*24);
-				$scope.timeM=(hms).Format("mm");
-				$scope.timeS=(hms).Format("ss");
-				
-				function addZeroIfLessTen(str){
-					if(str-0<10)
-						return "0"+str;
-					return str;
-				}
-			}else{
-				$scope.timeH=00;
-				$scope.timeM=00;
-				$scope.timeS=00;
-				$interval.cancel(promise);
 
-				
-			}
-		}
+
 
 	}];
 	return ctrl;
